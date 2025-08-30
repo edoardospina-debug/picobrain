@@ -1,6 +1,6 @@
 <!-- CLAUDE: ALWAYS READ THIS FIRST - ACTIVE PROJECT CONTEXT -->
-<!-- Last Updated: 2025-08-30 22:45:03 -->
-<!-- Session ID: 20250830_224503 -->
+<!-- Last Updated: 2025-08-30 22:45:11 -->
+<!-- Session ID: 20250830_224510 -->
 
 # 🧠 CLAUDE KNOWLEDGE BASE - PicoBrain
 
@@ -171,6 +171,56 @@ active_endpoints:
   3. Added 'use client' to dashboard-layout.tsx
 - **Result**: ✅ Dashboard fully functional at http://localhost:3000/dashboard
 - **Verification**: All pages now loading correctly with proper UI
+
+---
+
+## Session Update: 2025-01-11 - Employee Migration Executed 🚀
+
+### Migration Script Deployment
+- **Script**: `employee_migration.py` - Complete employee migration from CSV to PicoBrain API
+- **Location**: `/Users/edo/PyProjects/picobrain/employee_migration.py`
+- **Dependencies Installed**: aiohttp, pydantic
+- **Execution**: Running autonomously in Terminal
+
+### Migration Configuration
+- **Source CSV**: `/Users/edo/PyProjects/input_files/Employees.csv`
+- **Target API**: `http://localhost:8000/api/v1/employees/bulk`
+- **Batch Size**: 20 employees per API call
+- **Authentication**: admin/admin123 (autonomous execution)
+- **Processing Mode**: Async with aiohttp
+
+### Data Transformations Applied
+- **Clinic Mapping**: temp_id → UUID using clinic_id_mapping.json
+  ```json
+  {
+    "10": "c69dfe69-63c2-445f-9624-54c7876becb5",  // London
+    "11": "44cc3318-35f9-45e9-a9b5-aab0e47c8c15",  // Milan
+    "12": "2b79920a-0ebf-4684-bc11-2ca6316af262",  // Los Angeles
+    "13": "f3711a7f-216a-493f-8543-d03d3fa4387f",  // Vancouver
+    "14": "94646ff0-78c3-4d49-ab90-5336c861b3c4"   // New York
+  }
+  ```
+- **Role Mapping**: 
+  - doctor → doctor
+  - staff → staff
+  - manager → manager
+  - finance → admin
+- **Date Parsing**: DD/MM/YYYY → PostgreSQL Date format
+- **Commission**: Decimal to percentage (0.1 → 10%)
+- **Active Status**: Based on termination_date vs current date
+- **Treatment Permissions**: Set for role='doctor' only
+- **Email Cleaning**: Validation and invalid email filtering
+
+### Expected Outputs
+- `employee_migration.log` - Detailed execution log
+- `migration_report_YYYYMMDD_HHMMSS.json` - Complete migration report
+- `employee_id_mapping_YYYYMMDD_HHMMSS.json` - temp_id to UUID mapping
+
+### Migration Status
+- **Status**: EXECUTING in Terminal
+- **Expected Duration**: 2-5 minutes for 86 employees
+- **Check Progress**: View Terminal window for real-time updates
+- **Verification**: Check log files for success/failure counts
 
 ---
 
@@ -1103,6 +1153,84 @@ With updated models, we can now:
  frontend/tsconfig.json                             |   35 -
  frontend/v0-prompt.md                              |   68 -
  63 files changed, 1272 insertions(+), 16986 deletions(-)
+
+### Patterns Observed
++      "pattern": "class Person",
++      "pattern": "class Clinic",
++      "pattern": "class Client",
++      "pattern": "class Employee",
++      "pattern": "class User",
+
+---
+
+## Session Update: 2025-08-30 23:26
+- **Changes**: 1656 additions, 21686 deletions
+- **Files modified**: 64
+- **Summary**:  .claude/cache.json                                 |    6 +-
+ .claude/knowledge/patterns.json                    |  743 +-
+ .claude/metrics/changes.csv                        |   10 +
+ CLAUDE.md                                          |   54 +-
+ backend/app/api/v1/endpoints/clinics.py            |  145 +-
+ backend/app/api/v1/endpoints/employees.py          |  420 +-
+ backend/app/api/v1/endpoints/persons.py            |  115 +-
+ backend/app/models/core.py                         |   70 +-
+ backend/app/schemas/__init__.py                    |    7 +-
+ backend/app/schemas/core.py                        |  129 +-
+ frontend/.env.yaml                                 |   10 -
+ frontend/DASHBOARD_STATUS.md                       |  129 -
+ frontend/MODERN_UI_FRAMEWORK.md                    |  328 -
+ frontend/README.md                                 |  186 -
+ frontend/UI_STANDARDIZATION_STATUS.md              |  145 -
+ frontend/next-env.d.ts                             |    6 -
+ frontend/next.config.js                            |   52 -
+ frontend/package-lock.json                         | 8023 --------------------
+ frontend/package.json                              |   49 -
+ frontend/postcss.config.js                         |    6 -
+ frontend/public/abstract-geometric-shapes.png      |  Bin 675864 -> 0 bytes
+ frontend/public/caring-doctor.png                  |  Bin 930303 -> 0 bytes
+ frontend/src/app/dashboard/clients/page.tsx        |  484 --
+ frontend/src/app/dashboard/clinics/page.tsx        |  463 --
+ frontend/src/app/dashboard/employees/page.tsx      |  586 --
+ frontend/src/app/dashboard/layout.tsx              |  329 -
+ frontend/src/app/dashboard/page.tsx                |  696 --
+ frontend/src/app/dashboard/persons/page.tsx        |  548 --
+ frontend/src/app/dashboard/users/page.tsx          |  662 --
+ frontend/src/app/globals.css                       |  415 -
+ frontend/src/app/layout.tsx                        |   33 -
+ frontend/src/app/login/page.tsx                    |  208 -
+ frontend/src/app/page.tsx                          |    5 -
+ frontend/src/app/providers.tsx                     |   30 -
+ frontend/src/components/dashboard/StatsCard.tsx    |   72 -
+ frontend/src/components/enhanced/CRMLayout.tsx     |   96 -
+ .../src/components/enhanced/EnhancedStatsCard.tsx  |  172 -
+ frontend/src/components/enhanced/EnhancedTable.tsx |  443 --
+ frontend/src/components/enhanced/index.ts          |    8 -
+ frontend/src/components/styled/index.tsx           |  320 -
+ frontend/src/components/templates/PageTemplate.tsx |   49 -
+ frontend/src/components/ui/avatar.tsx              |   53 -
+ frontend/src/components/ui/badge.tsx               |   46 -
+ frontend/src/components/ui/button.tsx              |   59 -
+ frontend/src/components/ui/card.tsx                |   92 -
+ frontend/src/components/ui/checkbox.tsx            |   32 -
+ frontend/src/components/ui/dialog.tsx              |  143 -
+ frontend/src/components/ui/dropdown-menu.tsx       |  257 -
+ frontend/src/components/ui/input.tsx               |   21 -
+ frontend/src/components/ui/label.tsx               |   24 -
+ frontend/src/components/ui/select.tsx              |  185 -
+ frontend/src/components/ui/textarea.tsx            |   18 -
+ frontend/src/components/ui/toaster.tsx             |  129 -
+ frontend/src/lib/api.ts                            |  136 -
+ frontend/src/lib/theme.ts                          |   77 -
+ frontend/src/lib/utils.ts                          |    6 -
+ frontend/src/services/api.service.ts               |  381 -
+ frontend/src/services/auth.service.ts              |  125 -
+ frontend/src/styles/picoclinics-palette.css        |   90 -
+ frontend/src/types/api.ts                          |  237 -
+ frontend/tailwind.config.js                        |   58 -
+ frontend/tsconfig.json                             |   35 -
+ frontend/v0-prompt.md                              |   68 -
+ knowledge.md                                       | 4818 +-----------
+ 64 files changed, 1656 insertions(+), 21686 deletions(-)
 
 ### Patterns Observed
 +      "pattern": "class Person",
