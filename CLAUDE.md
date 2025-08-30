@@ -1,6 +1,6 @@
 <!-- CLAUDE: ALWAYS READ THIS FIRST - ACTIVE PROJECT CONTEXT -->
-<!-- Last Updated: 2025-08-30 20:39:17 -->
-<!-- Session ID: 20250830_203917 -->
+<!-- Last Updated: 2025-08-30 20:39:34 -->
+<!-- Session ID: 20250830_203934 -->
 
 # 🧠 CLAUDE KNOWLEDGE BASE - PicoBrain
 
@@ -530,6 +530,95 @@ Person (Base Entity)
 
 ---
 
+## Session Update: 2025-08-30 20:30 - Clinic Schema Fix & Full Remigration ✅
+
+### Actions Completed
+
+1. **Database Schema Enhancement**
+   - Added `temp_id` INTEGER column for migration tracking
+   - Will map to CSV IDs for Staff/Doctor foreign keys
+
+2. **SQLAlchemy Model Fixed**
+   - Updated Clinic model from 7 to 17 fields
+   - Added: address_line_1/2, state_province, postal_code, phone, email, tax_id, timestamps
+   - Model now matches complete database schema
+
+3. **Full Data Remigration**
+   - Source: Updated CSV with properly separated address fields
+   - Method: UPDATE existing records (preserved UUIDs)
+   - Results: All 5 clinics now have complete address data
+   - Data quality fixes: NY address typo, clean city names
+
+### Key Learning: Two-Phase Migration Pattern
+
+**Phase 1**: Quick migration with available fields → Get system running
+**Phase 2**: Schema alignment + full data migration → Complete data
+
+This pattern allows for:
+- Rapid initial setup
+- Discovery of schema mismatches
+- Preservation of relationships
+- Incremental data quality improvements
+
+### Migration Artifacts Created
+- `add_temp_id_column.py` - Schema modification
+- `remigrate_clinics_full.py` - Full data UPDATE migration  
+- `verify_clinic_migration.py` - Data verification
+
+### Current Clinic Data Status
+✅ All addresses complete and properly separated
+✅ Email addresses added for all clinics
+✅ City names cleaned (removed embedded postal codes)
+✅ State/Province data added where applicable
+✅ temp_id mapped for foreign key references
+
+---
+
+## Session Update: 2025-08-30 20:45 - Persons & Employees Schema Alignment ✅
+
+### SQLAlchemy Models Updated
+
+#### Person Model (7→14 fields)
+**Added Fields**:
+- `middle_name` - Additional name field
+- `phone_home` - Home phone number
+- `nationality` - Country code (2 chars)
+- `id_type` - Type of identification document
+- `id_number` - ID document number
+- `created_at`, `updated_at` - Timestamps
+
+#### Employee Model (8→17 fields)
+**Added Fields**:
+- `specialization` - Medical specialization or department
+- `license_expiry` - Professional license expiration date
+- `hire_date` - Employment start (NOT NULL)
+- `termination_date` - Employment end date
+- `base_salary_minor` - Salary in minor units (cents/pence)
+- `salary_currency` - Currency code (FK to currencies table)
+- `commission_rate` - Commission percentage
+- `created_at`, `updated_at` - Timestamps
+
+### Key Discoveries
+
+1. **Currency Reference Table**: Employees.salary_currency references `currencies.currency_code`, indicating a separate currency table exists (not just clinic currencies)
+
+2. **Salary Storage Pattern**: Using `base_salary_minor` (BigInteger) stores salary in minor units (cents/pence) to avoid floating-point issues
+
+3. **Complete Employment Tracking**: Database designed for full HR functionality with hire/termination dates and compensation details
+
+4. **Professional Licensing**: Supports license expiry tracking for regulatory compliance
+
+### Migration Readiness
+
+With updated models, we can now:
+- Access all CSV data fields during migration
+- Store employment dates (from_date → hire_date, to_date → termination_date)
+- Store compensation data (base_salary, commission_percentage)
+- Track license expiration for doctors
+- Maintain complete personal information
+
+---
+
 ## Session Update: 2025-08-30 18:40
 - **Changes**: 551 additions, 1064 deletions
 - **Files modified**: 8
@@ -691,5 +780,150 @@ Person (Base Entity)
 +  const v0 = new V0AppInteraction();
 +- id (UUID), code, name, functional_currency, city, country_code, is_active
 ++  - CSS: Complex selector with multiple classes (see artifact)
+
+---
+
+## Session Update: 2025-08-30 21:08
+- **Changes**: 172 additions, 16832 deletions
+- **Files modified**: 58
+- **Summary**:  .claude/cache.json                                 |    6 +-
+ .claude/metrics/changes.csv                        |    6 +
+ CLAUDE.md                                          |   48 +-
+ backend/app/models/core.py                         |   23 +-
+ frontend/.env.yaml                                 |   10 -
+ frontend/DASHBOARD_STATUS.md                       |  129 -
+ frontend/MODERN_UI_FRAMEWORK.md                    |  328 -
+ frontend/README.md                                 |  186 -
+ frontend/UI_STANDARDIZATION_STATUS.md              |  145 -
+ frontend/next-env.d.ts                             |    6 -
+ frontend/next.config.js                            |   52 -
+ frontend/package-lock.json                         | 8023 --------------------
+ frontend/package.json                              |   49 -
+ frontend/postcss.config.js                         |    6 -
+ frontend/public/abstract-geometric-shapes.png      |  Bin 675864 -> 0 bytes
+ frontend/public/caring-doctor.png                  |  Bin 930303 -> 0 bytes
+ frontend/src/app/dashboard/clients/page.tsx        |  484 --
+ frontend/src/app/dashboard/clinics/page.tsx        |  463 --
+ frontend/src/app/dashboard/employees/page.tsx      |  586 --
+ frontend/src/app/dashboard/layout.tsx              |  329 -
+ frontend/src/app/dashboard/page.tsx                |  696 --
+ frontend/src/app/dashboard/persons/page.tsx        |  548 --
+ frontend/src/app/dashboard/users/page.tsx          |  662 --
+ frontend/src/app/globals.css                       |  415 -
+ frontend/src/app/layout.tsx                        |   33 -
+ frontend/src/app/login/page.tsx                    |  208 -
+ frontend/src/app/page.tsx                          |    5 -
+ frontend/src/app/providers.tsx                     |   30 -
+ frontend/src/components/dashboard/StatsCard.tsx    |   72 -
+ frontend/src/components/enhanced/CRMLayout.tsx     |   96 -
+ .../src/components/enhanced/EnhancedStatsCard.tsx  |  172 -
+ frontend/src/components/enhanced/EnhancedTable.tsx |  443 --
+ frontend/src/components/enhanced/index.ts          |    8 -
+ frontend/src/components/styled/index.tsx           |  320 -
+ frontend/src/components/templates/PageTemplate.tsx |   49 -
+ frontend/src/components/ui/avatar.tsx              |   53 -
+ frontend/src/components/ui/badge.tsx               |   46 -
+ frontend/src/components/ui/button.tsx              |   59 -
+ frontend/src/components/ui/card.tsx                |   92 -
+ frontend/src/components/ui/checkbox.tsx            |   32 -
+ frontend/src/components/ui/dialog.tsx              |  143 -
+ frontend/src/components/ui/dropdown-menu.tsx       |  257 -
+ frontend/src/components/ui/input.tsx               |   21 -
+ frontend/src/components/ui/label.tsx               |   24 -
+ frontend/src/components/ui/select.tsx              |  185 -
+ frontend/src/components/ui/textarea.tsx            |   18 -
+ frontend/src/components/ui/toaster.tsx             |  129 -
+ frontend/src/lib/api.ts                            |  136 -
+ frontend/src/lib/theme.ts                          |   77 -
+ frontend/src/lib/utils.ts                          |    6 -
+ frontend/src/services/api.service.ts               |  381 -
+ frontend/src/services/auth.service.ts              |  125 -
+ frontend/src/styles/picoclinics-palette.css        |   90 -
+ frontend/src/types/api.ts                          |  237 -
+ frontend/tailwind.config.js                        |   58 -
+ frontend/tsconfig.json                             |   35 -
+ frontend/v0-prompt.md                              |   68 -
+ knowledge.md                                       |   96 +-
+ 58 files changed, 172 insertions(+), 16832 deletions(-)
+
+### Patterns Observed
++class Clinic(Base):
++    functional_currency = Column(CHAR(3))
+
+---
+
+## Session Update: 2025-08-30 21:46
+- **Changes**: 4215 additions, 16866 deletions
+- **Files modified**: 62
+- **Summary**:  .claude/cache.json                                 |    6 +-
+ .claude/metrics/changes.csv                        |    7 +
+ CLAUDE.md                                          |  162 +-
+ backend/app/api/v1/endpoints/clinics.py            |  145 +-
+ backend/app/api/v1/endpoints/persons.py            |  115 +-
+ backend/app/models/core.py                         |   70 +-
+ backend/app/schemas/__init__.py                    |    7 +-
+ backend/app/schemas/core.py                        |  129 +-
+ frontend/.env.yaml                                 |   10 -
+ frontend/DASHBOARD_STATUS.md                       |  129 -
+ frontend/MODERN_UI_FRAMEWORK.md                    |  328 -
+ frontend/README.md                                 |  186 -
+ frontend/UI_STANDARDIZATION_STATUS.md              |  145 -
+ frontend/next-env.d.ts                             |    6 -
+ frontend/next.config.js                            |   52 -
+ frontend/package-lock.json                         | 8023 --------------------
+ frontend/package.json                              |   49 -
+ frontend/postcss.config.js                         |    6 -
+ frontend/public/abstract-geometric-shapes.png      |  Bin 675864 -> 0 bytes
+ frontend/public/caring-doctor.png                  |  Bin 930303 -> 0 bytes
+ frontend/src/app/dashboard/clients/page.tsx        |  484 --
+ frontend/src/app/dashboard/clinics/page.tsx        |  463 --
+ frontend/src/app/dashboard/employees/page.tsx      |  586 --
+ frontend/src/app/dashboard/layout.tsx              |  329 -
+ frontend/src/app/dashboard/page.tsx                |  696 --
+ frontend/src/app/dashboard/persons/page.tsx        |  548 --
+ frontend/src/app/dashboard/users/page.tsx          |  662 --
+ frontend/src/app/globals.css                       |  415 -
+ frontend/src/app/layout.tsx                        |   33 -
+ frontend/src/app/login/page.tsx                    |  208 -
+ frontend/src/app/page.tsx                          |    5 -
+ frontend/src/app/providers.tsx                     |   30 -
+ frontend/src/components/dashboard/StatsCard.tsx    |   72 -
+ frontend/src/components/enhanced/CRMLayout.tsx     |   96 -
+ .../src/components/enhanced/EnhancedStatsCard.tsx  |  172 -
+ frontend/src/components/enhanced/EnhancedTable.tsx |  443 --
+ frontend/src/components/enhanced/index.ts          |    8 -
+ frontend/src/components/styled/index.tsx           |  320 -
+ frontend/src/components/templates/PageTemplate.tsx |   49 -
+ frontend/src/components/ui/avatar.tsx              |   53 -
+ frontend/src/components/ui/badge.tsx               |   46 -
+ frontend/src/components/ui/button.tsx              |   59 -
+ frontend/src/components/ui/card.tsx                |   92 -
+ frontend/src/components/ui/checkbox.tsx            |   32 -
+ frontend/src/components/ui/dialog.tsx              |  143 -
+ frontend/src/components/ui/dropdown-menu.tsx       |  257 -
+ frontend/src/components/ui/input.tsx               |   21 -
+ frontend/src/components/ui/label.tsx               |   24 -
+ frontend/src/components/ui/select.tsx              |  185 -
+ frontend/src/components/ui/textarea.tsx            |   18 -
+ frontend/src/components/ui/toaster.tsx             |  129 -
+ frontend/src/lib/api.ts                            |  136 -
+ frontend/src/lib/theme.ts                          |   77 -
+ frontend/src/lib/utils.ts                          |    6 -
+ frontend/src/services/api.service.ts               |  381 -
+ frontend/src/services/auth.service.ts              |  125 -
+ frontend/src/styles/picoclinics-palette.css        |   90 -
+ frontend/src/types/api.ts                          |  237 -
+ frontend/tailwind.config.js                        |   58 -
+ frontend/tsconfig.json                             |   35 -
+ frontend/v0-prompt.md                              |   68 -
+ knowledge.md                                       | 3615 ++++++++-
+ 62 files changed, 4215 insertions(+), 16866 deletions(-)
+
+### Patterns Observed
++3. **Complete Employment Tracking**: Database designed for full HR functionality with hire/termination dates and compensation details
+++class Clinic(Base):
+++    functional_currency = Column(CHAR(3))
++class UserRole(str, Enum):
++    functional_currency: Optional[str] = Field(None, max_length=3)
 
 ---
