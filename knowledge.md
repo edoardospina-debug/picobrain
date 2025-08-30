@@ -17,19 +17,21 @@ Password: bcrypt 4.3.0, passlib 1.7.4
 Python: 3.x with venv
 ```
 
-### Frontend (Next.js/React) - Updated
+### Frontend (Next.js/React) - Decided 2025-08-30
 ```yaml
-Framework: Next.js 14.2.3 (downgraded from 15.5.2 for stability)
-UI Library: React 18.3.1 (downgraded from 19.1.1 for compatibility)
+Framework: Next.js 14.x (Chosen for Vercel deployment)
+UI Library: React 18.3.1 (stable version)
 Styling: Tailwind CSS 3.3.0
+Components: shadcn/ui (v0.app compatible)
 State: Zustand 4.4.7
 Data Fetching: TanStack Query 5.17.9
 HTTP Client: Axios 1.6.5
-UI Components: Radix UI
+Forms: React Hook Form + Zod
 Animations: Framer Motion 11.0.0
 Charts: Recharts 2.10.4
 TypeScript: 5.x
 Icons: Lucide React 0.454.0
+Deployment: Vercel
 ```
 
 ## 🔧 Verified Commands
@@ -679,8 +681,730 @@ BACKEND_CORS_ORIGINS = [
 - [ ] /dashboard/employees
 - [ ] /dashboard/users
 
+## 🌨 v0.app Development Strategy (Updated 2025-08-30)
+
+### Login Page Generation Plan
+
+**Component Requirements**:
+1. **Design Consistency**: Match dashboard and CRUD templates
+2. **Color Scheme**: PicoClinics coral (#e67e5b) as primary
+3. **Framework**: Next.js 14 App Router structure
+4. **Form Handling**: React Hook Form with Zod validation
+5. **Authentication**: JWT with /api/v1/auth/login endpoint
+6. **Error Handling**: Inline validation messages
+7. **Loading States**: Button spinner during authentication
+8. **Responsive**: Mobile-first design approach
+
+**File Structure for Login**:
+```
+app/
+  (auth)/
+    login/
+      page.tsx       # Main login page
+      layout.tsx     # Auth-specific layout
+components/
+  auth/
+    LoginForm.tsx    # Form component
+    SocialLogin.tsx  # OAuth buttons
+lib/
+  auth/
+    validation.ts    # Zod schemas
+    api.ts          # Auth API calls
+```
+
+### v0.app Templates Status
+- **Dashboard**: `/Users/edo/PyProjects/picobrain-dashboard.zip` ✅
+- **CRUD**: `/Users/edo/PyProjects/crud-template.zip` ✅
+- **Login**: To be generated with Next.js 14 compatibility
+
+## 🤖 v0.app Programmatic Interaction Guide (Discovered 2025-08-30)
+
+### Key Discovery
+**Breakthrough**: Successfully figured out how to programmatically interact with v0.app AI through browser automation.
+
+### Technical Details
+
+#### Editor Technology
+- **Editor Type**: ProseMirror (rich text editor framework)
+- **Text Input Method**: `document.execCommand('insertText', false, 'text')`
+- **Key Requirement**: Must focus the editor before inserting text
+
+#### Submit Button Identification
+**Multiple Methods to Find Submit Button**:
+1. **XPath**: `/html/body/div[3]/div[2]/div[2]/main/div/div/div[1]/div[1]/div/form/div[3]/div[2]/button[2]`
+2. **JavaScript Path**: Complex selector with multiple classes
+3. **Fallback Methods**: Search by text content ("Submit", "Send") or button styling
+
+### Implementation Pattern
+
+#### Core Class Structure
+```javascript
+class V0AppInteraction {
+    constructor() {
+        this.editorSelector = '.ProseMirror';
+        this.submitButtonXPath = '...';
+    }
+    
+    async insertTextViaExecCommand(text) {
+        // Focus editor, insert text using execCommand
+    }
+    
+    async submitPrompt() {
+        // Find and click submit button
+    }
+    
+    async sendPrompt(promptText) {
+        // Complete workflow: insert + submit
+    }
+    
+    async waitForResponse() {
+        // Monitor for AI response
+    }
+}
+```
+
+#### Usage Examples
+```javascript
+// Simple usage
+const v0 = new V0AppInteraction();
+await v0.sendPrompt('Create a React component for a todo list');
+
+// Step-by-step control
+await v0.insertTextViaExecCommand('Create a dashboard');
+await v0.submitPrompt();
+const response = await v0.waitForResponse();
+```
+
+### Key Implementation Details
+
+#### Text Insertion Strategy
+1. **Primary Method**: `document.execCommand('insertText', false, text)`
+   - Most reliable for ProseMirror
+   - Maintains undo/redo stack
+   - Triggers proper input events
+
+2. **Alternative Methods**:
+   - Input/beforeinput events (less reliable)
+   - Direct DOM manipulation (not recommended)
+
+#### Submit Button Detection
+**Multi-fallback Approach**:
+1. Try complex CSS selector first
+2. Fall back to searching all buttons
+3. Use XPath as last resort
+4. Check for text content matches
+
+#### Response Monitoring
+- Poll for new content in response area
+- Check for assistant message elements
+- Compare content changes over time
+- Implement timeout for safety
+
+### Important Considerations
+
+#### Timing and Delays
+- **Focus delay**: 100ms after focusing editor
+- **Submit delay**: 500ms between text insertion and submit
+- **Response polling**: 500ms intervals
+- **Response completion**: 2s after last change
+
+#### Error Handling
+- Editor not found errors
+- Submit button detection failures
+- Response timeout handling
+- Network error recovery
+
+#### Browser Compatibility
+- Requires modern browser with execCommand support
+- Works best in Chrome/Edge
+- May need adjustments for Firefox/Safari
+
+### Integration with PicoBrain
+
+**Potential Use Cases**:
+1. **Code Generation**: Generate components for PicoBrain UI
+2. **Documentation**: Auto-generate API documentation
+3. **Testing**: Generate test cases for endpoints
+4. **Migration Scripts**: Create database migrations
+5. **UI Components**: Generate consistent UI components
+
+**Workflow Integration**:
+```javascript
+// Example: Generate a new component for PicoBrain
+const v0 = new V0AppInteraction();
+const prompt = `
+Create a React component for PicoBrain that:
+- Uses our coral color scheme (#e67e5b)
+- Follows our DashboardLayout pattern
+- Includes TypeScript types
+- Uses Tailwind CSS
+- Component: PatientAppointmentCard
+`;
+await v0.sendPrompt(prompt);
+```
+
+### Security and Best Practices
+
+#### Rate Limiting
+- Implement delays between requests
+- Avoid overwhelming the service
+- Respect v0.app's terms of service
+
+#### Error Recovery
+- Implement retry logic with exponential backoff
+- Log all interactions for debugging
+- Graceful degradation on failures
+
+#### Content Validation
+- Verify generated code before use
+- Test in isolated environment first
+- Review for security vulnerabilities
+
+### Future Enhancements
+
+**Planned Improvements**:
+1. [ ] Add response parsing for code extraction
+2. [ ] Implement conversation context management
+3. [ ] Add support for file uploads
+4. [ ] Create CLI wrapper for automation
+5. [ ] Build integration tests
+
+**Research Areas**:
+- WebSocket connection for real-time updates
+- API endpoint discovery
+- Authentication token management
+- Session persistence strategies
+
+---
+
+## 🎨 Frontend Development with v0.app (2025-08-30)
+
+### v0.app Integration Results
+
+#### Successfully Completed
+1. **Programmatic Connection**: Established browser automation with v0.app
+2. **Dashboard Prompt**: Submitted design request with PicoClinics colors
+3. **CRUD Templates**: Requested reusable CRUD components
+4. **Color Integration**: Applied exact picoclinics.com palette
+
+#### Key Learnings
+- **Context Limits**: v0.app has prompt size limitations - use focused prompts
+- **Generation Time**: Complex components take 5-10 seconds to generate
+- **Editor Type**: ProseMirror requires execCommand for text insertion
+- **Best Results**: Provide specific requirements and color values
+
+### Recommended Frontend Stack (Based on v0.app Best Practices)
+
+```yaml
+Framework: Next.js 14+ (App Router)
+Language: TypeScript 5.x
+Styling: Tailwind CSS 3.x
+Components: shadcn/ui
+State: Zustand or Context API
+Data Fetching: TanStack Query v5
+Forms: React Hook Form + Zod
+Animations: Framer Motion
+Icons: Lucide React
+Deployment: Vercel
+```
+
+### File Structure for Vercel Deployment
+
+```bash
+frontend/
+├── app/                       # Next.js App Router
+│   ├── (auth)/               # Authentication routes group
+│   │   ├── login/
+│   │   ├── register/
+│   │   └── forgot-password/
+│   ├── (dashboard)/          # Dashboard routes group
+│   │   ├── layout.tsx        # Shared dashboard layout
+│   │   ├── page.tsx          # Dashboard home
+│   │   ├── patients/
+│   │   ├── appointments/
+│   │   ├── clinics/
+│   │   └── settings/
+│   ├── api/                  # API routes (if needed)
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Landing page
+├── components/
+│   ├── ui/                   # shadcn/ui components
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   └── ...
+│   ├── dashboard/            # Dashboard components
+│   │   ├── stat-card.tsx
+│   │   ├── activity-feed.tsx
+│   │   └── quick-actions.tsx
+│   ├── forms/                # Form components
+│   │   ├── patient-form.tsx
+│   │   └── appointment-form.tsx
+│   └── shared/               # Shared components
+│       ├── header.tsx
+│       ├── sidebar.tsx
+│       └── footer.tsx
+├── lib/
+│   ├── api/                  # API client functions
+│   │   ├── auth.ts
+│   │   ├── patients.ts
+│   │   └── appointments.ts
+│   ├── hooks/                # Custom React hooks
+│   │   ├── use-auth.ts
+│   │   └── use-patients.ts
+│   └── utils/                # Utility functions
+│       ├── cn.ts            # Class name utility
+│       └── format.ts        # Formatting utilities
+├── styles/
+│   └── globals.css          # Global styles + Tailwind
+├── types/                    # TypeScript types
+│   ├── api.ts
+│   ├── models.ts
+│   └── components.ts
+└── public/                   # Static assets
+    ├── images/
+    └── fonts/
+```
+
+### PicoClinics Design System Implementation
+
+#### Tailwind Configuration
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'pico': {
+          coral: {
+            DEFAULT: '#e67e5b',
+            light: '#f2a085',
+            dark: '#d4634a',
+            subtle: '#fdf5f2',
+          },
+          gray: {
+            50: '#fafafa',
+            100: '#f5f5f5',
+            200: '#e5e5e5',
+            600: '#525252',
+            900: '#171717',
+          },
+          success: '#10b981',
+          warning: '#f59e0b',
+          error: '#ef4444',
+          info: '#3b82f6',
+        }
+      }
+    }
+  }
+}
+```
+
+#### CSS Variables
+```css
+/* styles/globals.css */
+@layer base {
+  :root {
+    --pico-coral: 231 126 91;      /* #e67e5b */
+    --pico-coral-light: 242 160 133; /* #f2a085 */
+    --pico-coral-dark: 212 99 74;   /* #d4634a */
+    --pico-coral-subtle: 253 245 242; /* #fdf5f2 */
+    
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;          /* #171717 */
+    --primary: var(--pico-coral);
+    --primary-foreground: 0 0% 100%;
+  }
+}
+```
+
+### Dashboard Components Specification
+
+#### Main Dashboard Requirements
+1. **Header**: Logo placeholder + User menu with logout
+2. **Sidebar**: Navigation with active state indicators
+3. **Metric Cards**: 
+   - Patients count
+   - Appointments today
+   - Monthly revenue
+   - Pending tasks
+4. **Recent Activity**: Timeline of recent actions
+5. **Quick Actions**: Buttons for common tasks
+
+#### CRUD Template Features
+1. **List View**:
+   - Search bar with debounce
+   - Column filters
+   - Pagination
+   - Bulk actions
+   
+2. **Create/Edit Modal**:
+   - Form validation with Zod
+   - Field-level errors
+   - Loading states
+   - Success feedback
+   
+3. **Delete Confirmation**:
+   - Modal dialog
+   - Consequence warning
+   - Undo option (soft delete)
+   
+4. **Notifications**:
+   - Toast for success/error
+   - Position: top-right
+   - Auto-dismiss: 5 seconds
+
+### Vercel Deployment Configuration
+
+#### Environment Variables
+```bash
+# .env.local
+NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_APP_NAME=PicoBrain
+NEXT_PUBLIC_APP_VERSION=1.0.0
+
+# .env.production
+NEXT_PUBLIC_API_URL=https://api.picobrain.com
+```
+
+#### vercel.json
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "@picobrain-api-url",
+    "NEXT_PUBLIC_APP_NAME": "PicoBrain"
+  }
+}
+```
+
+### API Integration Pattern
+
+#### Axios Configuration
+```typescript
+// lib/api/client.ts
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Request interceptor for auth
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Response interceptor for error handling
+apiClient.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error.response?.status === 401) {
+      // Handle token refresh or redirect to login
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;
+```
+
+#### TanStack Query Setup
+```typescript
+// app/providers.tsx
+'use client';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1 minute
+      gcTime: 5 * 60 * 1000, // 5 minutes
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+}
+```
+
+### Implementation Priorities
+
+#### Phase 1: Foundation (Days 1-2)
+1. ✅ Initialize Next.js with TypeScript
+2. ✅ Configure Tailwind with PicoClinics colors
+3. ✅ Install and setup shadcn/ui
+4. ✅ Create layout components from v0.app
+5. ✅ Setup API client with Axios
+
+#### Phase 2: Core Features (Days 3-5)
+1. [ ] Implement authentication flow
+2. [ ] Build dashboard from v0.app design
+3. [ ] Create CRUD templates for main entities
+4. [ ] Connect to backend endpoints
+5. [ ] Add loading and error states
+
+#### Phase 3: Enhancement (Days 6-7)
+1. [ ] Add data visualizations
+2. [ ] Implement real-time updates
+3. [ ] Optimize for mobile
+4. [ ] Add PWA features
+5. [ ] Performance optimization
+
+#### Phase 4: Deployment (Day 8)
+1. [ ] Configure Vercel project
+2. [ ] Setup environment variables
+3. [ ] Deploy to preview
+4. [ ] Run lighthouse audit
+5. [ ] Deploy to production
+
+---
+
+## Database Migration Patterns (Added 2025-08-30)
+
+### SQLAlchemy Model Structure (PicoBrain)
+- **Location**: `/backend/app/models/core.py`
+- **Pattern**: All models in single file, re-exported via individual files
+- **Inheritance**: Composition pattern using foreign keys (not true OOP inheritance)
+- **Example**: Person → Employee relationship via person_id FK
+
+### CSV to PostgreSQL Migration Strategy
+
+#### 1. ID Mapping Pattern
+```python
+# Always create CSV ID → UUID mapping file
+id_mapping = {}
+for row in csv_data:
+    new_id = uuid.uuid4()
+    id_mapping[csv_row['id']] = new_id
+    
+# Save for dependent tables
+import json
+with open('id_mapping.json', 'w') as f:
+    json.dump({k: str(v) for k, v in id_mapping.items()}, f)
+```
+
+#### 2. Data Transformation Functions
+```python
+def parse_address(address_string):
+    """Extract city, country_code from full address"""
+    parts = address_string.split(',')
+    country_mapping = {
+        'UK': 'GB', 'USA': 'US', 
+        'Italy': 'IT', 'Canada': 'CA'
+    }
+    # Parse logic here
+    return city, country_code
+
+def parse_name(full_name):
+    """Split full name into first and last"""
+    parts = full_name.split()
+    if len(parts) == 2:
+        return parts[0], parts[1]
+    elif len(parts) > 2:
+        # Handle complex names
+        return ' '.join(parts[:-1]), parts[-1]
+    return full_name, ''
+```
+
+#### 3. Date Format Conversion
+```python
+from datetime import datetime
+
+def convert_date(date_str):
+    """Convert DD/MM/YYYY to Date object"""
+    if not date_str:
+        return None
+    return datetime.strptime(date_str, '%d/%m/%Y').date()
+```
+
+#### 4. Enum Mapping Pattern
+```python
+# Create explicit mapping for mismatched enums
+role_mapping = {
+    'accountant': 'finance',
+    'owner': 'admin',
+    'staff': 'receptionist',  # or context-dependent
+    'doctor': 'doctor'  # direct mapping
+}
+
+def map_role(csv_role):
+    return role_mapping.get(csv_role.lower(), 'admin')
+```
+
+### Migration Script Template
+```python
+#!/usr/bin/env python3
+import csv
+import uuid
+import sys
+from pathlib import Path
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from app.models.core import Model
+
+# Database setup
+DATABASE_URL = "postgresql://edo@localhost/picobraindb"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine)
+
+def migrate_entity():
+    session = SessionLocal()
+    try:
+        # 1. Clean existing data
+        session.query(Model).delete()
+        session.commit()
+        
+        # 2. Read CSV
+        with open('data.csv', 'r', encoding='utf-8-sig') as f:
+            data = list(csv.DictReader(f))
+        
+        # 3. Load ID mappings if needed
+        with open('id_mapping.json') as f:
+            id_mapping = json.load(f)
+        
+        # 4. Transform and insert
+        for row in data:
+            # Transform data
+            new_record = Model(
+                id=uuid.uuid4(),
+                # mapped fields
+            )
+            session.add(new_record)
+        
+        session.commit()
+        print(f"✓ Migrated {len(data)} records")
+        
+    except Exception as e:
+        session.rollback()
+        print(f"✗ Migration failed: {e}")
+        raise
+    finally:
+        session.close()
+
+if __name__ == "__main__":
+    migrate_entity()
+```
+
+### Migration Order Strategy
+1. **Respect Dependencies**: Parents before children
+   - Clinics (no dependencies)
+   - Persons (no dependencies) 
+   - Employees (depends on Persons + Clinics)
+   - Users (depends on Persons)
+   - Clients (depends on Persons + Clinics)
+
+2. **ID Mapping Persistence**: Save between migrations
+   ```python
+   # After each migration
+   with open(f'{entity}_id_mapping.json', 'w') as f:
+       json.dump(id_mapping, f)
+   ```
+
+3. **Validation After Migration**:
+   ```python
+   # Verify counts
+   assert session.query(Model).count() == len(csv_data)
+   # Verify relationships
+   for record in session.query(Model).all():
+       assert record.foreign_key_id is not None
+   ```
+
+### Common Migration Challenges & Solutions
+
+| Challenge | Solution |
+|-----------|----------|
+| Missing fields in DB | Accept data loss or extend schema |
+| Enum mismatches | Create mapping dictionary |
+| Complex names | Smart parsing with fallbacks |
+| Date formats | Use strptime with format string |
+| Foreign key dependencies | Migrate in dependency order |
+| NULL handling | Use `.get()` with defaults |
+| Encoding issues | Use `encoding='utf-8-sig'` |
+| Duplicate detection | Check unique constraints first |
+
+### Database Access Pattern
+```python
+# Standard connection
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+DATABASE_URL = "postgresql://edo@localhost/picobraindb"
+engine = create_engine(DATABASE_URL, echo=False)
+SessionLocal = sessionmaker(bind=engine)
+
+# Context manager pattern
+from contextlib import contextmanager
+
+@contextmanager
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+        db.commit()
+    except:
+        db.rollback()
+        raise
+    finally:
+        db.close()
+
+# Usage
+with get_db() as db:
+    clinics = db.query(Clinic).all()
+```
+
+### Entity Relationship in PicoBrain
+```
+Person (Base Entity)
+├── Employee (via person_id FK)
+│   ├── role='doctor' → Doctor behavior
+│   ├── role='nurse' → Nurse behavior  
+│   ├── role='manager' → Manager behavior
+│   └── role='finance' → Finance behavior
+├── Client (via person_id FK)
+└── User (via person_id FK for authentication)
+
+Clinic (Independent Entity)
+├── employees (relationship)
+└── clients (preferred_clinic relationship)
+```
+
+### Migration Artifacts Created
+- `/backend/migrate_clinics.py` - Complete clinic migration
+- `/backend/clinic_id_mapping.json` - CSV ID to UUID mappings
+- Pattern: Create similar scripts for Staff and Doctors
+
+---
+
 ## Weekly Review: 2025-W35
-- Commits: 2
-- Files Changed: 17
-- Top patterns: None yet
+- Commits: 3
+- Files Changed: 19
+- Top patterns: v0.app integration, Frontend architecture
+- Key Achievement: Programmatic v0.app interaction established
 ---
