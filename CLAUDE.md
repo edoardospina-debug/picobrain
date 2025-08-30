@@ -1,6 +1,6 @@
 <!-- CLAUDE: ALWAYS READ THIS FIRST - ACTIVE PROJECT CONTEXT -->
-<!-- Last Updated: 2025-08-30 14:45:00 -->
-<!-- Session ID: 20250830_142924 -->
+<!-- Last Updated: 2025-08-30 15:56:56 -->
+<!-- Session ID: 20250830_155656 -->
 
 # 🧠 CLAUDE KNOWLEDGE BASE - PicoBrain
 
@@ -129,6 +129,25 @@ active_endpoints:
  frontend/package-lock.json | 2036 +++++++++++++++++++++++++++++++++++++++-----
  frontend/package.json      |   29 +-
  4 files changed, 1917 insertions(+), 266 deletions(-)
+
+### Patterns Observed
++        "class-variance-authority": "^0.7.1",
++    "node_modules/class-variance-authority": {
++      "resolved": "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.7.1.tgz",
++    "class-variance-authority": "^0.7.1",
+
+---
+
+## Session Update: 2025-08-30 15:57
+- **Changes**: 1924 additions, 269 deletions
+- **Files modified**: 6
+- **Summary**:  CLAUDE.md                  |    4 +-
+ backend/app/config.py      |   43 +-
+ backend/requirements.txt   |   75 +-
+ frontend/package-lock.json | 2036 +++++++++++++++++++++++++++++++++++++++-----
+ frontend/package.json      |   29 +-
+ knowledge.md               |    6 +-
+ 6 files changed, 1924 insertions(+), 269 deletions(-)
 
 ### Patterns Observed
 +        "class-variance-authority": "^0.7.1",
