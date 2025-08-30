@@ -36,11 +36,17 @@ Icons: Lucide React 0.454.0
 
 ### Server Management
 ```bash
-# Start Backend (Port 8000)
+# Quick Start (Both Servers) - NEW!
+cd /Users/edo/PyProjects/picobrain && ./start-servers.sh
+
+# Start Backend (Port 8000) - Manual
 cd /Users/edo/PyProjects/picobrain/backend && source venv/bin/activate && python -m uvicorn app.main:app --reload --port 8000
 
-# Start Frontend (Port 3000)
+# Start Frontend (Port 3000) - Manual
 cd /Users/edo/PyProjects/picobrain/frontend && npm run dev
+
+# Create Admin User
+cd backend && source venv/bin/activate && python manage.py create-admin
 
 # Stop Servers
 lsof -i :8000 | grep LISTEN | awk '{print $2}' | xargs kill -9
@@ -113,9 +119,11 @@ cd backend && source venv/bin/activate && pip install package_name && pip freeze
 - `/api/v1/employees/` - Employee management
 - `/api/v1/clients/` - Client management
 
-### Default Credentials
-- Email: `admin@picobrain.com`
-- Password: (check .env file)
+### Default Credentials (Verified)
+- **Email**: `admin@picobrain.com`
+- **Password**: `admin123`
+- **Created by**: `python manage.py create-admin`
+- **Location**: `/backend/app/seeds/create_admin.py`
 
 ## 🎨 PicoClinics Design System
 
@@ -202,6 +210,8 @@ NEXT_PUBLIC_APP_VERSION=1.0.0
 - Mobile app directory exists but React Native not configured
 - Backend uses plain Python without type checking
 - Some test scripts may need permission updates (chmod +x)
+- Incorrect login route: `/login/dashboard` returns 404 (use `/login`)
+- Servers must be started separately (backend & frontend)
 
 ## ⚠️ Pitfalls & Time-Wasters
 - Always activate venv before Python commands
@@ -238,26 +248,52 @@ NEXT_PUBLIC_APP_VERSION=1.0.0
 - run_tests.sh for all backend tests
 
 ## 🚀 Quick Start Checklist
-1. [ ] Activate Python virtual environment
-2. [ ] Start backend server (port 8000)
-3. [ ] Start frontend server (port 3000)
+1. [ ] Ensure PostgreSQL is running (`pg_isready -h localhost -p 5432`)
+2. [ ] Run `./start-servers.sh` OR manually start both servers:
+   - [ ] Activate Python virtual environment
+   - [ ] Start backend server (port 8000)
+   - [ ] Start frontend server (port 3000)
+3. [ ] Verify API health at http://localhost:8000/health
 4. [ ] Verify API docs at http://localhost:8000/api/v1/docs
-5. [ ] Access dashboard at http://localhost:3000/dashboard
-6. [ ] Check authentication with default admin credentials
+5. [ ] Login at http://localhost:3000/login with:
+   - Username: admin@picobrain.com
+   - Password: admin123
+6. [ ] Access dashboard at http://localhost:3000/dashboard
 
 ## 📚 Additional Resources
 - API Documentation: http://localhost:8000/api/v1/docs
+- API Health Check: http://localhost:8000/health
 - Frontend: http://localhost:3000
-- Dashboard: http://localhost:3000/dashboard
+- Login Page: http://localhost:3000/login
+- Dashboard: http://localhost:3000/dashboard (requires authentication)
 - Database Migrations: backend/alembic/versions/
 - Test Scripts: backend/test_*.sh
+- Admin User Creation: backend/app/seeds/create_admin.py
 
 ## 🔄 Authentication Integration Patterns
+
+### Login Process (Verified)
+1. User accesses http://localhost:3000/login
+2. Enters credentials (admin@picobrain.com / admin123)
+3. Frontend POSTs to /api/v1/auth/login
+4. Backend validates with bcrypt password hash
+5. Returns JWT token on success
+6. Frontend stores token and redirects to /dashboard
+7. All subsequent API calls include JWT in headers
 
 ### JWT Token Flow
 **Pattern**: Middleware-based auth check with automatic refresh
 **Implementation**: Store token in HTTP-only cookies or localStorage
 **Benefits**: Seamless user experience, reduced auth errors
+
+### Admin User Creation
+**Script**: `backend/app/seeds/create_admin.py`
+**Command**: `python manage.py create-admin`
+**Creates**:
+- Person record (System Administrator)
+- User record with admin role
+- Password hash using bcrypt
+**Note**: Script checks if admin exists before creating
 
 ### Protected Routes Pattern
 **Problem**: Ensuring pages require authentication

@@ -1,0 +1,5 @@
+sessions/current.md
+sessions/*.txt
+cache/*.tmp
+*.log
+!.gitkeep

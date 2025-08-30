@@ -1,6 +1,6 @@
 <!-- CLAUDE: ALWAYS READ THIS FIRST - ACTIVE PROJECT CONTEXT -->
-<!-- Last Updated: 2025-08-30 16:07:46 -->
-<!-- Session ID: 20250830_160746 -->
+<!-- Last Updated: 2025-08-30 16:50:15 -->
+<!-- Session ID: 20250830_165015 -->
 
 # 🧠 CLAUDE KNOWLEDGE BASE - PicoBrain
 
@@ -12,9 +12,17 @@
 
 ### Server URLs (Verified)
 - **Backend API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/api/v1/docs
+- **API Docs**: http://localhost:8000/api/v1/docs  
 - **Frontend**: http://localhost:3000
-- **Dashboard**: http://localhost:3000/dashboard (auto-redirect)
+- **Dashboard**: http://localhost:3000/dashboard (requires login)
+- **Login Page**: http://localhost:3000/login
+
+### 🔐 Authentication (Verified 2025-08-30)
+- **Admin Username**: admin@picobrain.com
+- **Admin Password**: admin123
+- **Login Route**: `/login` (not `/login/dashboard`)
+- **After Login**: Auto-redirects to `/dashboard`
+- **Session**: JWT-based authentication
 
 ## 📊 CURRENT STATE
 ```yaml
@@ -63,6 +71,9 @@ active_endpoints:
 - **Mobile App**: Directory exists but React Native not configured
 - **Backend**: No TypeScript, uses plain Python
 - **Token Duplication**: Session updates were duplicating (now fixed)
+- **Server Startup**: Need to start both backend (port 8000) and frontend (port 3000)
+- **Login Route**: Use `/login` not `/login/dashboard` (404 error)
+- **Database**: Requires PostgreSQL running locally or via Docker
 
 ## Session Notes
 - Session initialized at 2025-08-30 04:15:00
@@ -70,6 +81,8 @@ active_endpoints:
 - Automation scripts: Ready
 - Knowledge extraction: Enabled
 - Memory limit: 8GB RAM (MacBook M2)
+- **Login Process Verified**: Successfully logged in with admin credentials
+- **Server Startup Script**: Created `start-servers.sh` for easy startup
 
 ## Session Update: 2025-08-30 14:45
 - **Action**: Consolidated knowledge base from project documentation
@@ -172,5 +185,44 @@ active_endpoints:
 +    "node_modules/class-variance-authority": {
 +      "resolved": "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.7.1.tgz",
 +    "class-variance-authority": "^0.7.1",
+
+---
+
+## Session Update: 2025-08-30 16:58
+- **Changes**: 1981 additions, 281 deletions
+- **Files modified**: 6
+- **Summary**:  CLAUDE.md                  |   21 +-
+ backend/app/config.py      |   43 +-
+ backend/requirements.txt   |   75 +-
+ frontend/package-lock.json | 2036 +++++++++++++++++++++++++++++++++++++++-----
+ frontend/package.json      |   29 +-
+ knowledge.md               |   58 +-
+ 6 files changed, 1981 insertions(+), 281 deletions(-)
+
+### Patterns Observed
++        "class-variance-authority": "^0.7.1",
++    "node_modules/class-variance-authority": {
++      "resolved": "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.7.1.tgz",
++    "class-variance-authority": "^0.7.1",
+
+---
+
+## Session Update: 2025-08-30 17:12
+- **Changes**: 2000 additions, 281 deletions
+- **Files modified**: 6
+- **Summary**:  CLAUDE.md                  |   40 +-
+ backend/app/config.py      |   43 +-
+ backend/requirements.txt   |   75 +-
+ frontend/package-lock.json | 2036 +++++++++++++++++++++++++++++++++++++++-----
+ frontend/package.json      |   29 +-
+ knowledge.md               |   58 +-
+ 6 files changed, 2000 insertions(+), 281 deletions(-)
+
+### Patterns Observed
+++        "class-variance-authority": "^0.7.1",
+++    "node_modules/class-variance-authority": {
+++      "resolved": "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.7.1.tgz",
+++    "class-variance-authority": "^0.7.1",
++        "class-variance-authority": "^0.7.1",
 
 ---
