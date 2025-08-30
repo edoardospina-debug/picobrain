@@ -17,10 +17,10 @@ Password: bcrypt 4.3.0, passlib 1.7.4
 Python: 3.x with venv
 ```
 
-### Frontend (Next.js/React)
+### Frontend (Next.js/React) - Updated
 ```yaml
-Framework: Next.js 15.5.2
-UI Library: React 19.1.1
+Framework: Next.js 14.2.3 (downgraded from 15.5.2 for stability)
+UI Library: React 18.3.1 (downgraded from 19.1.1 for compatibility)
 Styling: Tailwind CSS 3.3.0
 State: Zustand 4.4.7
 Data Fetching: TanStack Query 5.17.9
@@ -35,14 +35,23 @@ Icons: Lucide React 0.454.0
 ## 🔧 Verified Commands
 
 ### Server Management
+
+#### 🚀 IMPORTANT: Always Start Servers First!
+**Lesson Learned**: Before any testing or development work, both servers MUST be running:
+- **Backend**: Port 8000 (FastAPI/Uvicorn)
+- **Backend**: Must use uvicorn (no app.py file exists)
+- **Frontend**: Port 3000 (Next.js dev server)
+- **Order**: Start backend first, then frontend (frontend depends on backend API)
+
 ```bash
-# Quick Start (Both Servers) - NEW!
+# Quick Start (Both Servers) - RECOMMENDED!
 cd /Users/edo/PyProjects/picobrain && ./start-servers.sh
 
-# Start Backend (Port 8000) - Manual
+# Manual Start - Terminal Method (Keep tabs open)
+# Tab 1 - Backend (use uvicorn - no app.py file exists):
 cd /Users/edo/PyProjects/picobrain/backend && source venv/bin/activate && python -m uvicorn app.main:app --reload --port 8000
 
-# Start Frontend (Port 3000) - Manual
+# Tab 2 - Frontend:
 cd /Users/edo/PyProjects/picobrain/frontend && npm run dev
 
 # Create Admin User
@@ -207,11 +216,19 @@ NEXT_PUBLIC_APP_VERSION=1.0.0
 - Development hot-reload on both frontend and backend
 
 ## ❌ Known Issues
+- **Frontend Build Error**: ✅ FIXED! (downgraded to React 18 + Next.js 14, added 'use client' to DashboardLayout)
 - Mobile app directory exists but React Native not configured
 - Backend uses plain Python without type checking
 - Some test scripts may need permission updates (chmod +x)
-- Incorrect login route: `/login/dashboard` returns 404 (use `/login`)
-- Servers must be started separately (backend & frontend)
+
+## ⚠️ Common Mistakes to Avoid
+- **React 19 Compatibility**: React 19 is too new, use React 18 for stability
+- **Missing 'use client'**: Components using hooks need 'use client' directive in Next.js App Router
+- **Wrong API Docs URL**: Use `/docs` NOT `/api/v1/docs`
+- **Wrong Backend Command**: Use `python -m uvicorn app.main:app` NOT `python app.py`
+- **Login Route**: Use `/login` NOT `/login/dashboard` (returns 404)
+- **Forgot venv**: Always activate venv before Python commands
+- **Servers Not Running**: Both servers MUST be running before testing
 
 ## ⚠️ Pitfalls & Time-Wasters
 - Always activate venv before Python commands
@@ -248,24 +265,34 @@ NEXT_PUBLIC_APP_VERSION=1.0.0
 - run_tests.sh for all backend tests
 
 ## 🚀 Quick Start Checklist
+
+### ⚠️ CRITICAL FIRST STEP: Start Servers!
+**Why**: Without servers running, you cannot:
+- Test the application
+- Access the dashboard
+- Make API calls
+- See UI changes
+
 1. [ ] Ensure PostgreSQL is running (`pg_isready -h localhost -p 5432`)
-2. [ ] Run `./start-servers.sh` OR manually start both servers:
-   - [ ] Activate Python virtual environment
-   - [ ] Start backend server (port 8000)
-   - [ ] Start frontend server (port 3000)
+2. [ ] **START BOTH SERVERS** (Essential for any work!):
+   - Method A: Run `./start-servers.sh` (easiest)
+   - Method B: Manual in Terminal tabs:
+     - [ ] Tab 1: `cd backend && source venv/bin/activate && python -m uvicorn app.main:app --reload`
+     - [ ] Tab 2: `cd frontend && npm run dev`
+   - [ ] Wait for both to fully start (~5-10 seconds)
 3. [ ] Verify API health at http://localhost:8000/health
-4. [ ] Verify API docs at http://localhost:8000/api/v1/docs
+4. [ ] Verify API docs at http://localhost:8000/docs (NOT /api/v1/docs)
 5. [ ] Login at http://localhost:3000/login with:
    - Username: admin@picobrain.com
    - Password: admin123
 6. [ ] Access dashboard at http://localhost:3000/dashboard
 
 ## 📚 Additional Resources
-- API Documentation: http://localhost:8000/api/v1/docs
+- API Documentation: http://localhost:8000/docs (NOT /api/v1/docs - common mistake!)
 - API Health Check: http://localhost:8000/health
-- Frontend: http://localhost:3000
-- Login Page: http://localhost:3000/login
-- Dashboard: http://localhost:3000/dashboard (requires authentication)
+- Frontend: http://localhost:3000 (currently has build errors)
+- Login Page: http://localhost:3000/login (requires frontend fix)
+- Dashboard: http://localhost:3000/dashboard (requires frontend fix)
 - Database Migrations: backend/alembic/versions/
 - Test Scripts: backend/test_*.sh
 - Admin User Creation: backend/app/seeds/create_admin.py
@@ -342,24 +369,45 @@ mutation.mutate(data, {
 
 ## 🏗️ Component Architecture Insights
 
-### Dashboard Layout Pattern
+### Dashboard Layout Pattern (Implemented 2025-08-30)
 **Learning**: Consistent layout wrapper reduces code duplication
 **Pattern**: Single DashboardLayout component with slot-based content
+**Status**: ✅ Successfully implemented in Phase 1
+
 ```typescript
-// app/dashboard/layout.tsx
-export default function DashboardLayout({ children }) {
+// components/layout/dashboard-layout.tsx
+export function DashboardLayout({ children, className }: DashboardLayoutProps) {
   return (
-    <div className="flex h-screen">
-      <Sidebar />
-      <main className="flex-1 overflow-auto">
-        <Header />
-        {children}
-      </main>
+    <div className="min-h-screen bg-gray-50">
+      <TopNavigation />
+      <div className="flex h-[calc(100vh-4rem)]">
+        <SideNavigation />
+        <main className={cn(
+          "flex-1 overflow-y-auto bg-gray-50",
+          "lg:pl-64", // Account for fixed sidebar
+          className
+        )}>
+          <div className="px-4 sm:px-6 lg:px-8 py-6">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   )
 }
 ```
-**Benefits**: Easier maintenance, consistent UX
+
+**Implementation Success**:
+- Mobile-responsive with slide-out menu
+- Active route highlighting
+- PicoClinics branding integrated
+- Consistent padding and spacing
+
+**Benefits**: 
+- Eliminated layout inconsistencies between pages
+- Single source of truth for navigation
+- Easier maintenance and updates
+- Guaranteed consistent UX across all dashboard pages
 
 ### Form Validation Strategy
 **Best Practice**: Share validation schemas between client and server
@@ -432,6 +480,49 @@ class SoftDeleteMixin:
 
 ## 🎨 UI/UX Patterns
 
+### Design Token System (Implemented 2025-08-30)
+**Pattern**: Centralized design tokens for consistency
+**Implementation**: JavaScript object with semantic naming
+
+```typescript
+// Used in dashboard refactoring
+const tokens = {
+  spacing: {
+    page: '1.5rem',
+    section: '1.5rem',
+    card: '1rem',
+  },
+  typography: {
+    pageTitle: 'text-3xl font-bold tracking-tight',
+    sectionTitle: 'text-xl font-semibold',
+    cardTitle: 'text-lg font-medium',
+  }
+}
+```
+
+**Result**: Consistent spacing and typography across all components
+
+### StatCard Component Pattern
+**Pattern**: Reusable metrics display component
+**Implementation**: Self-contained with props for customization
+
+```typescript
+interface StatCardProps {
+  title: string
+  value: string | number
+  description?: string
+  icon: React.ElementType
+  trend?: 'up' | 'down' | 'neutral'
+  trendValue?: string
+}
+```
+
+**Features**:
+- Trend indicators with color coding
+- Icon support for visual context
+- Hover effects for interactivity
+- Responsive grid layout
+
 ### Loading States
 **Pattern**: Skeleton screens for better perceived performance
 **Implementation**: Component-specific skeletons
@@ -495,6 +586,26 @@ def test_create_patient():
 
 ## 📝 Common Pitfalls & Solutions
 
+### Layout Inconsistency Across Pages
+**Issue**: Different pages had different layouts and navigation
+**Root Cause**: No shared layout component
+**Solution**: Implemented DashboardLayout wrapper pattern
+**Result**: All dashboard pages now have consistent look and feel
+
+### className Utility for Tailwind
+**Issue**: Complex conditional classes become unreadable
+**Solution**: Implemented cn() utility function
+```typescript
+// lib/utils.ts
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+**Benefits**: Cleaner conditional styling, proper class merging
+
 ### N+1 Query Problem
 **Issue**: Loading related data in loops
 **Solution**: Use SQLAlchemy eager loading
@@ -524,7 +635,51 @@ BACKEND_CORS_ORIGINS = [
     "http://localhost:3001",
     "http://127.0.0.1:3000"
 ]
-```## Weekly Review: 2025-W35
+```## Implementation Phases Documentation
+
+### Phase 1: Dashboard Foundation (Completed 2025-08-30)
+**Scope**: Main dashboard page only
+**Files Created**: 4
+- `components/layout/dashboard-layout.tsx` (210 lines)
+- `app/dashboard/layout.tsx` (10 lines)
+- `app/dashboard/page.tsx` (200 lines)
+- `lib/utils.ts` (6 lines)
+
+**Achievements**:
+1. ✅ Established layout wrapper pattern
+2. ✅ Integrated PicoClinics design system
+3. ✅ Created reusable StatCard component
+4. ✅ Implemented responsive navigation
+5. ✅ Applied design tokens for consistency
+
+**Key Decisions**:
+- Used composition over inheritance
+- Kept StatCard local (extract in Phase 2)
+- Preserved all sub-pages unchanged
+- Mobile-first responsive approach
+
+**Lessons Learned**:
+- Layout wrapper pattern immediately solves consistency issues
+- Design tokens should be defined early
+- cn() utility essential for complex Tailwind classes
+- Incremental refactoring reduces risk
+
+### Phase 2: Component Extraction (Planned)
+**Scope**: Extract and share components
+- [ ] Move StatCard to shared components
+- [ ] Create shared DataTable component
+- [ ] Extract form components
+- [ ] Build loading skeletons
+
+### Phase 3: Sub-Page Refactoring (Planned)
+**Scope**: Apply patterns to all dashboard pages
+- [ ] /dashboard/persons
+- [ ] /dashboard/clinics
+- [ ] /dashboard/clients
+- [ ] /dashboard/employees
+- [ ] /dashboard/users
+
+## Weekly Review: 2025-W35
 - Commits: 2
 - Files Changed: 17
 - Top patterns: None yet
