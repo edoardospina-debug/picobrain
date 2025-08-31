@@ -6,7 +6,8 @@ from .core import (
     ClinicBase, ClinicCreate, ClinicUpdate, ClinicResponse,
     ClientBase, ClientCreate, ClientUpdate, ClientResponse,
     EmployeeBase, EmployeeCreate, EmployeeUpdate, EmployeeResponse,
-    GenderType, EmployeeRole
+    GenderType, EmployeeRole, UserRole,
+    PhoneNumber, PhoneNumberUpdate
 )
 
 # Import from user schemas
@@ -40,5 +41,7 @@ __all__ = [
     # Token schemas
     "Token", "TokenPayload", "TokenRefresh", "PasswordReset",
     # Enums
-    "GenderType", "EmployeeRole"
+    "GenderType", "EmployeeRole", "UserRole",
+    # Utility schemas
+    "PhoneNumber", "PhoneNumberUpdate"
 ]

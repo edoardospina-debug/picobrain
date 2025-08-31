@@ -1,0 +1,74 @@
+[
+  {
+    "index": 0,
+    "employee_code": "78",
+    "email": "mgarelick@mgmdmedical.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 1,
+    "employee_code": "75",
+    "email": "voong08@gmail.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 2,
+    "employee_code": "77",
+    "email": "xanathghz@gmail.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 0,
+    "employee_code": "76",
+    "email": "ghaus08@gmail.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 1,
+    "employee_code": "82",
+    "email": "m.alessandribonetti@gmail.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 2,
+    "employee_code": "89",
+    "email": "varna_s14@hotmail.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 0,
+    "employee_code": "71",
+    "email": "carolineminmd@gmail.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 1,
+    "employee_code": "99",
+    "email": "ducu.botoaca@yahoo.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 2,
+    "employee_code": "98",
+    "email": null,
+    "error": "Validation failed"
+  },
+  {
+    "index": 0,
+    "employee_code": "108",
+    "email": "aquila@picoclinics.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 1,
+    "employee_code": "109",
+    "email": "morgado@picoclinics.com",
+    "error": "Validation failed"
+  },
+  {
+    "index": 2,
+    "employee_code": "110",
+    "email": "juri@picoclinics.com",
+    "error": "Validation failed"
+  }
+]

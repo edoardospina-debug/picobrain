@@ -1,0 +1,437 @@
+[
+  {
+    "name": "Sarena Youssuf",
+    "code": "38",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Khrystel Pigeon",
+    "code": "37",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Benjamin Griffith",
+    "code": "102",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Edoardo Spina",
+    "code": "20",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Xuyuan Qi",
+    "code": "22",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Heng Luo",
+    "code": "39",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Lingchen Tan",
+    "code": "33",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Giacomo Bacchiega",
+    "code": "35",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Ye Tian",
+    "code": "36",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Dan Luo",
+    "code": "32",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Fengming Yang",
+    "code": "40",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Lu Lu",
+    "code": "56",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Ting Ting",
+    "code": "57",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Jiaxi Lin",
+    "code": "64",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Stella Zhang",
+    "code": "65",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Lyra NN",
+    "code": "68",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Yingyu Han",
+    "code": "42",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Zoe Zhang",
+    "code": "60",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Chandler NN",
+    "code": "61",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Jessica Unknown",
+    "code": "62",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Junyi Mah",
+    "code": "63",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Nanci Li",
+    "code": "66",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Daishi Yang",
+    "code": "53",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Qianqian Chen",
+    "code": "43",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Zitong Hong",
+    "code": "44",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Yu-Ting Huang",
+    "code": "46",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Xi Wang",
+    "code": "52",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Anna Guo",
+    "code": "47",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Zhaoyu Li",
+    "code": "48",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Yu Zhu",
+    "code": "49",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Nanxi Sun",
+    "code": "69",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Sihua Wang",
+    "code": "51",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Yangyang Peng",
+    "code": "50",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Yinqi Cui",
+    "code": "55",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Sara Milano",
+    "code": "54",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Tommy Lee",
+    "code": "58",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Elsa Fornero",
+    "code": "59",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Yuan Zhang",
+    "code": "45",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Shiyao Wang",
+    "code": "41",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Stella Li",
+    "code": "67",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Shihan Wang",
+    "code": "114",
+    "error": "{\"detail\":[{\"type\":\"enum\",\"loc\":[\"body\",\"role\"],\"msg\":\"Input should be 'doctor', 'nurse', 'receptionist', 'manager', 'finance' or 'admin'\",\"input\":\"staff\",\"ctx\":{\"expected\":\"'doctor', 'nurse', 'recept"
+  },
+  {
+    "name": "Carlos Raphael Rodriguez Jaquez",
+    "code": "21",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to targe"
+  },
+  {
+    "name": "Hsiao-Yuan Su",
+    "code": "34",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Tinatin Getiashvili-Dogonadze",
+    "code": "73",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Miro Slatan",
+    "code": "74",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Leilan Zoo",
+    "code": "79",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Irene Romeo",
+    "code": "80",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Giuseppe Cottone",
+    "code": "81",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Sotherga Clinic",
+    "code": "87",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Justina Clinic",
+    "code": "88",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Maria Garelick",
+    "code": "78",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Tony Voong",
+    "code": "75",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Alejandra Xanath Garcia Hernandez",
+    "code": "77",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Felice Grova",
+    "code": "83",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Antonino Puccio",
+    "code": "84",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Francesco Binaschi",
+    "code": "85",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Massimiliano Gioco",
+    "code": "86",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Natalie Hammer",
+    "code": "92",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Mustafa Alsaid",
+    "code": "70",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Heidi Choe",
+    "code": "72",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Ghaus Ata",
+    "code": "76",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Mario Bonetti",
+    "code": "82",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Kugavarna Sakthikugan",
+    "code": "89",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Ning Zining",
+    "code": "90",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Cian McLaughing",
+    "code": "91",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Susanna Carr",
+    "code": "93",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Aditi Tanna",
+    "code": "94",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Laura Dorobantu",
+    "code": "97",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Anna Fogli Malezhik",
+    "code": "100",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Stevany Ly",
+    "code": "101",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Caroline Min",
+    "code": "71",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Ducu Botoaca",
+    "code": "99",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Eugenia Bonelli",
+    "code": "98",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Mihaela Guias",
+    "code": "96",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Luisa Moreno Duenas",
+    "code": "95",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Alejandra Xanath",
+    "code": "103",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Cesare Giampietro",
+    "code": "104",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Annalisi Forni",
+    "code": "105",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Elias Etiopia",
+    "code": "106",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Olga LA",
+    "code": "107",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Giovanni Aquila",
+    "code": "108",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Miguel Morgado",
+    "code": "109",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Juri Tassinari",
+    "code": "110",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Eliana Milano",
+    "code": "111",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Shivangi Amin",
+    "code": "112",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "May Dottoressa",
+    "code": "113",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  },
+  {
+    "name": "Kugavarna Sakthikugan",
+    "code": "115",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"License number is required for EmployeeRole.doctor\",\"License expiry date is required for EmployeeRole.doctor\"]}}"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-08-31T00:30:17.466035",
+  "database": "picobraindb",
+  "csv_file": "/Users/edo/PyProjects/input_files/Employees.csv",
+  "total_in_csv": 87,
+  "success_count": 84,
+  "skip_count": 3,
+  "error_count": 0,
+  "doctor_count": 44,
+  "errors": [],
+  "clinic_id": "c69dfe69-63c2-445f-9624-54c7876becb5"
+}

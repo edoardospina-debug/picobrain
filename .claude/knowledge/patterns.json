@@ -1,5 +1,2220 @@
 {
-  "patterns": [],
+  "patterns": [
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinics",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on create_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on update_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on delete_clinic",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_formatted_address",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/clinics.py",
+      "pattern": "@decorators on get_contact_info",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_persons",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on create_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on update_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on delete_person",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on validate_phone_number",
+      "confidence": 0.9
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/api/v1/endpoints/persons.py",
+      "pattern": "@decorators on get_formatted_phone_numbers",
+      "confidence": 0.9
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Person",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Clinic",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Client",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class Employee",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/models/core.py",
+      "pattern": "class User",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class GenderType",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class UserRole",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PersonResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClinicResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class ClientResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeBase",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeCreate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class EmployeeResponse",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumber",
+      "confidence": 0.95
+    },
+    {
+      "type": "inheritance",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "class PhoneNumberUpdate",
+      "confidence": 0.95
+    },
+    {
+      "type": "decorator",
+      "file": "backend/app/schemas/core.py",
+      "pattern": "@decorators on full_number",
+      "confidence": 0.9
+    }
+  ],
   "antipatterns": [],
-  "last_updated": "2025-08-30T14:24:53.264534"
+  "last_updated": "2025-08-31T05:05:22.113854"
 }

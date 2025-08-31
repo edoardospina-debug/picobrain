@@ -1,6 +1,6 @@
 <!-- CLAUDE: ALWAYS READ THIS FIRST - ACTIVE PROJECT CONTEXT -->
-<!-- Last Updated: 2025-08-31 02:31:14 -->
-<!-- Session ID: 20250831_023114 -->
+<!-- Last Updated: 2025-08-31 05:31:11 -->
+<!-- Session ID: 20250831_053111 -->
 
 # 🧠 CLAUDE KNOWLEDGE BASE - PicoBrain
 
@@ -232,6 +232,37 @@ apiClient.interceptors.response.use(...)
 - 87 employees with all fields
 - 91 persons linked properly
 - Ready for frontend development
+
+---
+
+## 🔧 RECENT FIX: Employee Data Empty Array Issue (2025-08-31)
+
+### Problem Solved
+Employee API endpoint was returning empty arrays despite data in database.
+
+### Root Causes Fixed
+1. **SQLAlchemy session configuration**: Added `expire_on_commit=False` to prevent lazy loading issues
+2. **Person relationship**: Now properly loaded with `joinedload(Employee.person)`
+3. **Serialization**: Fixed silent failures when person data not available
+
+### Solution Applied
+```python
+# backend/app/database.py
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine,
+    expire_on_commit=False  # Critical fix for lazy loading
+)
+```
+
+### Verification
+Run diagnostic script to verify all layers working:
+```bash
+python3 fix_employee_data.py
+```
+
+**Result**: ✅ All tests passing - API returns complete employee data with person relationships
 
 ---
 

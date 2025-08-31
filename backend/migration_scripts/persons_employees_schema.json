@@ -1,0 +1,293 @@
+{
+  "persons": {
+    "table_name": "persons",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "max_length": null,
+        "nullable": false,
+        "default": "uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "first_name",
+        "data_type": "character varying",
+        "max_length": 100,
+        "nullable": false,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "last_name",
+        "data_type": "character varying",
+        "max_length": 100,
+        "nullable": false,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "middle_name",
+        "data_type": "character varying",
+        "max_length": 100,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "max_length": 255,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "phone_mobile",
+        "data_type": "character varying",
+        "max_length": 50,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "phone_home",
+        "data_type": "character varying",
+        "max_length": 50,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "dob",
+        "data_type": "date",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "gender",
+        "data_type": "USER-DEFINED",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "gender_type"
+      },
+      {
+        "column_name": "nationality",
+        "data_type": "character varying",
+        "max_length": 2,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "id_type",
+        "data_type": "character varying",
+        "max_length": 20,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "id_number",
+        "data_type": "text",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "max_length": null,
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "max_length": null,
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamptz"
+      }
+    ],
+    "foreign_keys": [],
+    "row_count": 4
+  },
+  "employees": {
+    "table_name": "employees",
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "max_length": null,
+        "nullable": false,
+        "default": "uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "person_id",
+        "data_type": "uuid",
+        "max_length": null,
+        "nullable": false,
+        "default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "employee_code",
+        "data_type": "character varying",
+        "max_length": 20,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "primary_clinic_id",
+        "data_type": "uuid",
+        "max_length": null,
+        "nullable": false,
+        "default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "role",
+        "data_type": "USER-DEFINED",
+        "max_length": null,
+        "nullable": false,
+        "default": null,
+        "udt_name": "employee_role"
+      },
+      {
+        "column_name": "specialization",
+        "data_type": "character varying",
+        "max_length": 100,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "license_number",
+        "data_type": "character varying",
+        "max_length": 50,
+        "nullable": true,
+        "default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "license_expiry",
+        "data_type": "date",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "hire_date",
+        "data_type": "date",
+        "max_length": null,
+        "nullable": false,
+        "default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "termination_date",
+        "data_type": "date",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "base_salary_minor",
+        "data_type": "bigint",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "int8"
+      },
+      {
+        "column_name": "salary_currency",
+        "data_type": "character",
+        "max_length": 3,
+        "nullable": true,
+        "default": null,
+        "udt_name": "bpchar"
+      },
+      {
+        "column_name": "commission_rate",
+        "data_type": "numeric",
+        "max_length": null,
+        "nullable": true,
+        "default": null,
+        "udt_name": "numeric"
+      },
+      {
+        "column_name": "is_active",
+        "data_type": "boolean",
+        "max_length": null,
+        "nullable": true,
+        "default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "can_perform_treatments",
+        "data_type": "boolean",
+        "max_length": null,
+        "nullable": true,
+        "default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "max_length": null,
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "max_length": null,
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamptz"
+      }
+    ],
+    "foreign_keys": [
+      {
+        "column": "person_id",
+        "references": "persons.id"
+      },
+      {
+        "column": "primary_clinic_id",
+        "references": "clinics.id"
+      },
+      {
+        "column": "salary_currency",
+        "references": "currencies.currency_code"
+      }
+    ],
+    "row_count": 0
+  },
+  "enums": {
+    "gender_type": [
+      "M",
+      "F",
+      "O",
+      "N"
+    ],
+    "employee_role": [
+      "doctor",
+      "nurse",
+      "receptionist",
+      "manager",
+      "finance",
+      "admin"
+    ]
+  }
+}

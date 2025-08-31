@@ -1,0 +1,524 @@
+[
+  {
+    "name": "Sarena Youssuf",
+    "code": "38",
+    "role": "admin",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Khrystel Pigeon",
+    "code": "37",
+    "role": "admin",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Benjamin Griffith",
+    "code": "102",
+    "role": "admin",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Edoardo Spina",
+    "code": "20",
+    "role": "manager",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Xuyuan Qi",
+    "code": "22",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Heng Luo",
+    "code": "39",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Lingchen Tan",
+    "code": "33",
+    "role": "manager",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\"]}}"
+  },
+  {
+    "name": "Giacomo Bacchiega",
+    "code": "35",
+    "role": "manager",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Ye Tian",
+    "code": "36",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Dan Luo",
+    "code": "32",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Fengming Yang",
+    "code": "40",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Lu Lu",
+    "code": "56",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Ting Ting",
+    "code": "57",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Jiaxi Lin",
+    "code": "64",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Stella Zhang",
+    "code": "65",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Lyra NN",
+    "code": "68",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Yingyu Han",
+    "code": "42",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Zoe Zhang",
+    "code": "60",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Chandler NN",
+    "code": "61",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Jessica Unknown",
+    "code": "62",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Junyi Mah",
+    "code": "63",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Nanci Li",
+    "code": "66",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Daishi Yang",
+    "code": "53",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Qianqian Chen",
+    "code": "43",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Zitong Hong",
+    "code": "44",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Yu-Ting Huang",
+    "code": "46",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Xi Wang",
+    "code": "52",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Anna Guo",
+    "code": "47",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Zhaoyu Li",
+    "code": "48",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Yu Zhu",
+    "code": "49",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Nanxi Sun",
+    "code": "69",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\",\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Sihua Wang",
+    "code": "51",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Yangyang Peng",
+    "code": "50",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Yinqi Cui",
+    "code": "55",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Sara Milano",
+    "code": "54",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Tommy Lee",
+    "code": "58",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Elsa Fornero",
+    "code": "59",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Yuan Zhang",
+    "code": "45",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Shiyao Wang",
+    "code": "41",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Stella Li",
+    "code": "67",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Shihan Wang",
+    "code": "114",
+    "role": "receptionist",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Commission rate not applicable for role: EmployeeRole.receptionist\"]}}"
+  },
+  {
+    "name": "Carlos Raphael Rodriguez Jaquez",
+    "code": "21",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Hsiao-Yuan Su",
+    "code": "34",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Tinatin Getiashvili-Dogonadze",
+    "code": "73",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Miro Slatan",
+    "code": "74",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Leilan Zoo",
+    "code": "79",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Irene Romeo",
+    "code": "80",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Giuseppe Cottone",
+    "code": "81",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Sotherga Clinic",
+    "code": "87",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Justina Clinic",
+    "code": "88",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Maria Garelick",
+    "code": "78",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Tony Voong",
+    "code": "75",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Alejandra Xanath Garcia Hernandez",
+    "code": "77",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Felice Grova",
+    "code": "83",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Antonino Puccio",
+    "code": "84",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Francesco Binaschi",
+    "code": "85",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Massimiliano Gioco",
+    "code": "86",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Natalie Hammer",
+    "code": "92",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Mustafa Alsaid",
+    "code": "70",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Heidi Choe",
+    "code": "72",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Ghaus Ata",
+    "code": "76",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Mario Bonetti",
+    "code": "82",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Kugavarna Sakthikugan",
+    "code": "89",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\"]}}"
+  },
+  {
+    "name": "Ning Zining",
+    "code": "90",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Validation failed\",\"errors\":[\"Salary currency is required when base salary is provided\"]}}"
+  },
+  {
+    "name": "Cian McLaughing",
+    "code": "91",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Susanna Carr",
+    "code": "93",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Aditi Tanna",
+    "code": "94",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Laura Dorobantu",
+    "code": "97",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Anna Fogli Malezhik",
+    "code": "100",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Stevany Ly",
+    "code": "101",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Caroline Min",
+    "code": "71",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Ducu Botoaca",
+    "code": "99",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Eugenia Bonelli",
+    "code": "98",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Mihaela Guias",
+    "code": "96",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Luisa Moreno Duenas",
+    "code": "95",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Alejandra Xanath",
+    "code": "103",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Cesare Giampietro",
+    "code": "104",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Annalisi Forni",
+    "code": "105",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Elias Etiopia",
+    "code": "106",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Olga LA",
+    "code": "107",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Giovanni Aquila",
+    "code": "108",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Miguel Morgado",
+    "code": "109",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Juri Tassinari",
+    "code": "110",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Eliana Milano",
+    "code": "111",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Shivangi Amin",
+    "code": "112",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "May Dottoressa",
+    "code": "113",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  },
+  {
+    "name": "Kugavarna Sakthikugan",
+    "code": "115",
+    "role": "doctor",
+    "error": "{\"detail\":{\"message\":\"Failed to create employee\",\"error\":\"Foreign key associated with column 'employees.salary_currency' could not find table 'currencies' with which to generate a foreign key to target column 'currency_code'\"}}"
+  }
+]

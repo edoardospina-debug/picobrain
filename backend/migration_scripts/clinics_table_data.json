@@ -1,0 +1,165 @@
+{
+  "table_name": "clinics",
+  "record_count": 5,
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "max_length": null,
+      "nullable": false,
+      "default": "uuid_generate_v4()"
+    },
+    {
+      "column_name": "code",
+      "data_type": "character varying",
+      "max_length": 10,
+      "nullable": false,
+      "default": null
+    },
+    {
+      "column_name": "name",
+      "data_type": "character varying",
+      "max_length": 100,
+      "nullable": false,
+      "default": null
+    },
+    {
+      "column_name": "functional_currency",
+      "data_type": "character",
+      "max_length": 3,
+      "nullable": false,
+      "default": null
+    },
+    {
+      "column_name": "address_line_1",
+      "data_type": "character varying",
+      "max_length": 255,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "address_line_2",
+      "data_type": "character varying",
+      "max_length": 255,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "city",
+      "data_type": "character varying",
+      "max_length": 100,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "state_province",
+      "data_type": "character varying",
+      "max_length": 100,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "postal_code",
+      "data_type": "character varying",
+      "max_length": 20,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "country_code",
+      "data_type": "character",
+      "max_length": 2,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "phone",
+      "data_type": "character varying",
+      "max_length": 50,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "email",
+      "data_type": "character varying",
+      "max_length": 255,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "tax_id",
+      "data_type": "character varying",
+      "max_length": 50,
+      "nullable": true,
+      "default": null
+    },
+    {
+      "column_name": "is_active",
+      "data_type": "boolean",
+      "max_length": null,
+      "nullable": true,
+      "default": "true"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "max_length": null,
+      "nullable": true,
+      "default": "CURRENT_TIMESTAMP"
+    },
+    {
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "max_length": null,
+      "nullable": true,
+      "default": "CURRENT_TIMESTAMP"
+    }
+  ],
+  "data": [
+    {
+      "id": "2b79920a-0ebf-4684-bc11-2ca6316af262",
+      "code": "LA",
+      "name": "Los Angeles",
+      "functional_currency": "USD",
+      "city": "CA 90210",
+      "country_code": "US",
+      "is_active": true
+    },
+    {
+      "id": "c69dfe69-63c2-445f-9624-54c7876becb5",
+      "code": "LN",
+      "name": "London",
+      "functional_currency": "GBP",
+      "city": "WC2h",
+      "country_code": "GB",
+      "is_active": true
+    },
+    {
+      "id": "44cc3318-35f9-45e9-a9b5-aab0e47c8c15",
+      "code": "MI",
+      "name": "Milan",
+      "functional_currency": "EUR",
+      "city": "Milano 20145",
+      "country_code": "IT",
+      "is_active": true
+    },
+    {
+      "id": "94646ff0-78c3-4d49-ab90-5336c861b3c4",
+      "code": "NY",
+      "name": "New York",
+      "functional_currency": "USD",
+      "city": "NY 10003",
+      "country_code": "US",
+      "is_active": true
+    },
+    {
+      "id": "f3711a7f-216a-493f-8543-d03d3fa4387f",
+      "code": "VC",
+      "name": "Vancouver",
+      "functional_currency": "CAD",
+      "city": "BC V6E 4A2",
+      "country_code": "CA",
+      "is_active": true
+    }
+  ]
+}
