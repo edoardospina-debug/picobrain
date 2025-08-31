@@ -1,6 +1,6 @@
 <!-- CLAUDE: ALWAYS READ THIS FIRST -->
 # Knowledge Base - PicoBrain
-Version: 2.2.0
+Version: 3.0.0
 Updated: 2025-08-31  
 Current Date: Saturday, August 31, 2025
 
@@ -68,30 +68,247 @@ DEFAULT_CLINIC_ID = "c69dfe69-63c2-445f-9624-54c7876becb5"  # London clinic
 }
 ```
 
-### 🎯 Final Working Migration Scripts
-```python
-# Database Connection (CRITICAL - Use these exact params!)
-db_params = {
-    'dbname': 'picobraindb',  # NOT edo_brain_4!
-    'user': 'edo',             # NOT postgres!
-    'password': '',
-    'host': 'localhost',
-    'port': '5432'
-}
+## 🎯 Frontend Architecture Plan (2025-08-31)
 
-# Working Scripts (in order of success)
-1. diagnose_migration.py - Identifies exact issues
-2. fix_migration_issues.py - Creates missing tables
-3. final_fixed_migration.py - Successfully migrates all 87 employees
+### Technology Stack Decided
+```yaml
+Framework: Next.js 14.x (App Router)
+UI Components: Ant Design 5.x  # Chosen for robust tables & forms
+State Management: TanStack Query v5 (server state) + Zustand (UI state)
+HTTP Client: Axios  # Better error handling than fetch
+Forms: React Hook Form + Zod
+Authentication: JWT with automatic refresh
+TypeScript: 5.x (strict mode)
+Deployment: Vercel
 ```
 
-### Next Steps After Migration
-1. ✅ Migration complete - all 87 employees in database
-2. Begin client data migration (next priority)
-3. Link users to employee records
-4. Set up employee permissions
-5. Test employee login functionality
-6. Remove temp_id columns after all migrations
+### Why Ant Design Over Alternatives
+- **Complete Components**: Tables with virtualization for 100k+ records
+- **Form Handling**: Built-in validation and complex forms
+- **Medical/Enterprise Look**: Professional aesthetic
+- **Performance**: Virtual scrolling out-of-box
+- **Less Custom Code**: Simpler maintenance
+
+### Frontend Project Structure
+```
+/frontend
+├── app/
+│   ├── (auth)/
+│   │   ├── login/
+│   │   └── layout.tsx
+│   ├── (dashboard)/
+│   │   ├── clinics/
+│   │   │   ├── page.tsx           # List view
+│   │   │   ├── [id]/page.tsx      # Detail/Edit view
+│   │   │   └── new/page.tsx       # Create view
+│   │   ├── staff/                 # Employees + Doctors combined
+│   │   ├── clients/
+│   │   ├── users/
+│   │   └── layout.tsx
+├── components/
+│   ├── layouts/
+│   │   ├── AuthLayout.tsx
+│   │   └── DashboardLayout.tsx
+│   ├── shared/
+│   │   ├── DataTable/             # ONE table for all entities
+│   │   ├── EntityForm/            # ONE form for all CRUD
+│   │   └── PageWrapper/           # Consistent page structure
+│   └── features/
+│       └── [entity]/              # Entity-specific overrides only
+├── lib/
+│   ├── api/
+│   │   ├── client.ts              # Axios instance with interceptors
+│   │   ├── auth.ts                # Auth endpoints & token management
+│   │   └── endpoints/
+│   ├── hooks/
+│   │   ├── useAuth.ts
+│   │   ├── usePermissions.ts
+│   │   └── useCrud.ts            # Generic CRUD operations
+│   └── utils/
+├── types/
+│   ├── generated/                 # Auto-generated from OpenAPI
+│   └── app.ts                     # Frontend-specific types
+└── config/
+```
+
+### Implementation Phases
+1. **Phase 1: Foundation (Days 1-2)**
+   - Next.js setup with TypeScript
+   - Ant Design configuration
+   - API client with interceptors
+   - Authentication flow
+
+2. **Phase 2: Shared Components (Days 3-4)**
+   - Generic DataTable with virtualization
+   - Dynamic EntityForm
+   - Loading states & error boundaries
+
+3. **Phase 3: Clinics POC (Days 5-6)** 🎯 **FIRST DELIVERABLE**
+   - Full CRUD for Clinics
+   - Pagination for 100k+ records
+   - Audit logging
+
+4. **Phase 4: Complete CRUD (Days 7-10)**
+   - Staff management (Persons + Employees)
+   - Clients management
+   - Users with role assignment
+
+5. **Phase 5: Polish (Days 11-12)**
+   - Error handling
+   - Performance optimization
+   - Accessibility
+
+## 📊 Complete API Structure (Discovered 2025-08-31)
+
+### Authentication & Security
+```python
+# JWT-based authentication
+- Access Token: 8 days expiry
+- Refresh Token: Longer expiry
+- Algorithm: HS256
+- Token stored in memory (frontend)
+- Refresh token as httpOnly cookie
+```
+
+### User Roles & Permissions
+```python
+UserRole Enum:
+- admin      # Full system access
+- manager    # Clinic management
+- staff      # General staff access  
+- medical    # Doctors, nurses
+- finance    # Financial operations
+- readonly   # View-only access
+```
+
+### Database Models & Relationships
+```python
+# Core Entities
+Person (Base entity for humans)
+├── id: UUID (primary key)
+├── first_name, last_name, middle_name
+├── email (unique)
+├── phone_mobile_country_code, phone_mobile_number
+├── phone_home_country_code, phone_home_number
+├── dob, gender, nationality
+├── id_type, id_number
+└── created_at, updated_at
+
+Employee (Person who works)
+├── id: UUID
+├── person_id: UUID (FK → Person)
+├── employee_code (unique)
+├── primary_clinic_id: UUID (FK → Clinic, REQUIRED)
+├── role: Enum (doctor, nurse, receptionist, manager, finance, admin)
+├── specialization, license_number, license_expiry
+├── hire_date, termination_date
+├── base_salary_minor, salary_currency, commission_rate
+├── is_active, can_perform_treatments
+└── created_at, updated_at
+
+Client (Person who receives treatment)
+├── id: UUID
+├── person_id: UUID (FK → Person)
+├── client_code (unique)
+├── acquisition_date
+├── preferred_clinic_id: UUID (FK → Clinic)
+└── is_active
+
+Clinic (Medical facility)
+├── id: UUID
+├── code (unique), name
+├── functional_currency
+├── address_line_1, address_line_2
+├── city, state_province, postal_code, country_code
+├── phone_country_code, phone_number, email
+├── tax_id, is_active
+└── created_at, updated_at
+
+User (System access)
+├── id: UUID
+├── person_id: UUID (FK → Person)
+├── username (unique), password_hash
+├── role: UserRole Enum
+└── is_active
+```
+
+### API Endpoints (Complete List)
+```yaml
+Authentication:
+  POST   /api/v1/auth/login         # OAuth2 compatible
+  POST   /api/v1/auth/refresh       # Refresh access token
+  GET    /api/v1/auth/me           # Current user info
+  POST   /api/v1/auth/logout        # Client-side logout
+
+Persons:
+  GET    /api/v1/persons           # List with pagination
+  POST   /api/v1/persons           # Create person
+  GET    /api/v1/persons/{id}      # Get person details
+  PUT    /api/v1/persons/{id}      # Update person
+  DELETE /api/v1/persons/{id}      # Delete person
+
+Clinics:
+  GET    /api/v1/clinics           # List clinics
+  POST   /api/v1/clinics           # Create clinic
+  GET    /api/v1/clinics/{id}      # Get clinic
+  PUT    /api/v1/clinics/{id}      # Update clinic
+  DELETE /api/v1/clinics/{id}      # Delete clinic
+
+Employees:
+  GET    /api/v1/employees         # List employees
+  POST   /api/v1/employees         # Create employee
+  POST   /api/v1/employees/bulk    # Bulk creation
+  GET    /api/v1/employees/{id}    # Get employee
+  PUT    /api/v1/employees/{id}    # Update employee
+  DELETE /api/v1/employees/{id}    # Delete employee
+
+Clients:
+  GET    /api/v1/clients           # List clients
+  POST   /api/v1/clients           # Create client
+  GET    /api/v1/clients/{id}      # Get client
+  PUT    /api/v1/clients/{id}      # Update client
+  DELETE /api/v1/clients/{id}      # Delete client
+
+Users:
+  GET    /api/v1/users             # List users (admin only)
+  POST   /api/v1/users             # Create user
+  GET    /api/v1/users/{id}        # Get user
+  PUT    /api/v1/users/{id}        # Update user
+  DELETE /api/v1/users/{id}        # Delete user
+```
+
+### API Integration Patterns
+```typescript
+// Axios Client Configuration
+const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  timeout: 30000,
+});
+
+// Auto Token Refresh
+apiClient.interceptors.response.use(
+  response => response,
+  async error => {
+    if (error.response?.status === 401) {
+      await refreshToken();
+      return apiClient.request(error.config);
+    }
+    return Promise.reject(error);
+  }
+);
+
+// Generic CRUD Hook
+function useCrud<T>(endpoint: string) {
+  const list = useQuery({ queryKey: [endpoint] });
+  const create = useMutation({ 
+    mutationFn: (data: T) => apiClient.post(endpoint, data)
+  });
+  const update = useMutation({
+    mutationFn: ({ id, data }) => apiClient.put(`${endpoint}/${id}`, data)
+  });
+  return { list, create, update };
+}
+```
 
 ## ✅ Verified Technical Stack
 
@@ -104,23 +321,24 @@ ORM: SQLAlchemy 2.0.25
 Migrations: Alembic 1.13.1
 Auth: JWT (python-jose 3.3.0)
 Password: bcrypt 4.3.0, passlib 1.7.4
-Python: 3.x with venv
+Validation: Pydantic 2.5.0
+Settings: pydantic-settings 2.1.0
+CORS: fastapi_cors 0.0.6
+Python: 3.12 with venv
 ```
 
-### Frontend (Next.js/React) - Decided 2025-08-30
+### Frontend (Finalized Architecture - 2025-08-31)
 ```yaml
-Framework: Next.js 14.x (Chosen for Vercel deployment)
-UI Library: React 18.3.1 (stable version)
-Styling: Tailwind CSS 3.3.0
-Components: shadcn/ui (v0.app compatible)
-State: Zustand 4.4.7
-Data Fetching: TanStack Query 5.17.9
-HTTP Client: Axios 1.6.5
-Forms: React Hook Form + Zod
-Animations: Framer Motion 11.0.0
-Charts: Recharts 2.10.4
-TypeScript: 5.x
-Icons: Lucide React 0.454.0
+Framework: Next.js 14.x (App Router)
+UI Components: Ant Design 5.20.x
+State Management: 
+  - TanStack Query 5.51.x (server state)
+  - Zustand 4.x (UI state)
+HTTP Client: Axios 1.7.x
+Forms: React Hook Form 7.52.x + Zod 3.23.x
+Date Handling: Day.js 1.11.x
+TypeScript: 5.5.x (strict mode)
+Build Tool: Turbopack (Next.js built-in)
 Deployment: Vercel
 ```
 
@@ -186,6 +404,10 @@ cd backend && source venv/bin/activate && python test_setup.py
 # Install Dependencies
 cd frontend && npm install
 
+# Generate Types from OpenAPI
+npx openapi-typescript http://localhost:8000/api/v1/openapi.json \
+  --output ./types/generated/api.ts
+
 # Build Production
 cd frontend && npm run build
 
@@ -205,304 +427,250 @@ cd backend && source venv/bin/activate && pip install -r requirements.txt
 cd backend && source venv/bin/activate && pip install package_name && pip freeze > requirements.txt
 ```
 
-## 📡 API Endpoints Reference
-
-### Authentication
-- `POST /api/v1/auth/login` - User login
-- `GET /api/v1/auth/me` - Get current user
-- `POST /api/v1/auth/refresh` - Refresh token
-- `POST /api/v1/auth/logout` - User logout
-
-### Resources (Full CRUD)
-- `/api/v1/persons/` - Person management
-- `/api/v1/clinics/` - Clinic management
-- `/api/v1/users/` - User management (admin only)
-- `/api/v1/employees/` - Employee management
-- `/api/v1/employees/bulk` - Bulk employee creation (NEW)
-- `/api/v1/clients/` - Client management
-
-### Default Credentials (Verified)
-- **Email**: `admin@picobrain.com`
-- **Password**: `admin123`
-- **Created by**: `python manage.py create-admin`
-- **Location**: `/backend/app/seeds/create_admin.py`
-
-## 🎨 PicoClinics Design System
-
-### Color Palette
-```css
-/* Primary Brand */
---pico-coral-primary: #e67e5b;
---pico-coral-light: #f2a085;
---pico-coral-dark: #d4634a;
---pico-coral-subtle: #fdf5f2;
-
-/* Semantic Colors */
---pico-success: #10b981;
---pico-warning: #f59e0b;
---pico-error: #ef4444;
---pico-info: #3b82f6;
-```
-
-### Tailwind Configuration
-```javascript
-colors: {
-  'pico-coral': {
-    50: '#FDF5F2',
-    100: '#F2A085',
-    500: '#E67E5B',
-    600: '#D4634A',
-  }
-}
-```
-
-## 📂 Project Structure
+## 📂 Complete Project Structure
 ```
 /Users/edo/PyProjects/picobrain/
 ├── backend/
 │   ├── app/
-│   │   ├── api/        # API endpoints
-│   │   ├── core/       # Core functionality
-│   │   ├── db/         # Database utilities
-│   │   ├── models/     # SQLAlchemy models
-│   │   ├── schemas/    # Pydantic schemas
-│   │   └── services/   # Business logic
-│   ├── alembic/        # Migrations
-│   ├── tests/          # Test files
-│   └── venv/           # Virtual environment
+│   │   ├── api/
+│   │   │   └── v1/
+│   │   │       ├── api.py      # Main router aggregation
+│   │   │       └── endpoints/  # All endpoint modules
+│   │   │           ├── auth.py     # JWT authentication
+│   │   │           ├── persons.py  # Person CRUD
+│   │   │           ├── clinics.py  # Clinic CRUD
+│   │   │           ├── employees.py # Employee CRUD + bulk
+│   │   │           ├── clients.py  # Client CRUD
+│   │   │           └── users.py    # User management
+│   │   ├── core/
+│   │   │   ├── config.py      # Settings with pydantic
+│   │   │   └── security.py    # JWT & password handling
+│   │   ├── db/
+│   │   │   └── database.py    # SQLAlchemy setup
+│   │   ├── models/
+│   │   │   ├── core.py        # Main entities
+│   │   │   ├── person.py      # Person model
+│   │   │   └── user.py        # User model
+│   │   ├── schemas/           # Pydantic validation
+│   │   ├── services/          # Business logic
+│   │   └── main.py           # FastAPI app entry
+│   ├── alembic/              # Database migrations
+│   ├── tests/                # Test files
+│   ├── requirements.txt      # Python dependencies
+│   └── venv/                 # Virtual environment
 ├── frontend/
-│   ├── src/
-│   │   ├── app/        # Next.js App Router
-│   │   ├── components/ # React components
-│   │   ├── hooks/      # Custom hooks
-│   │   ├── lib/        # Utilities
-│   │   └── services/   # API services
-│   └── node_modules/   # NPM packages
-├── mobile/             # React Native (incomplete)
-├── input_files/        # CSV data files
-│   ├── Employees.csv   # 87 employees
-│   ├── Clinics.csv     # 5 clinics (migrated)
+│   ├── app/                  # Next.js App Router
+│   ├── components/           # React components
+│   ├── lib/                  # Utilities & API client
+│   ├── types/                # TypeScript definitions
+│   ├── package.json          # Node dependencies
+│   └── next.config.js        # Next.js config
+├── mobile/                   # React Native (incomplete)
+├── input_files/             # CSV data files
+│   ├── Employees.csv        # 87 employees (MIGRATED)
+│   ├── Clinics.csv          # 5 clinics (MIGRATED)
 │   └── ...
-└── migration scripts/  # All migration Python scripts
+├── migration scripts/       # All migration Python scripts
+└── picobrain-frontend-plan.md  # Complete frontend development plan
 ```
 
 ## 🔐 Environment Variables
 
 ### Backend (.env)
 ```bash
-DATABASE_URL=postgresql://user@localhost/picobraindb
+DATABASE_URL=postgresql://edo@localhost/picobraindb
 SECRET_KEY=your-secret-key-here-change-in-production
+ENCRYPTION_KEY=your-encryption-key-here
+ACCESS_TOKEN_EXPIRE_MINUTES=11520  # 8 days
+JWT_ALGORITHM=HS256
 API_V1_STR=/api/v1
-PROJECT_NAME=Pico Brain
+PROJECT_NAME=PicoBrain Healthcare System
+APP_NAME=PicoBrain
+APP_VERSION=1.0.0
+ENVIRONMENT=development
+DEBUG=True
 BACKEND_CORS_ORIGINS=["http://localhost:3000", "http://localhost:8000"]
+DEFAULT_PAGE_SIZE=20
+MAX_PAGE_SIZE=100
 ```
 
-### Frontend (next.config.js)
-```javascript
-NEXT_PUBLIC_API_URL=http://localhost:8000
+### Frontend (.env.local)
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_NAME=PicoBrain
 NEXT_PUBLIC_APP_VERSION=1.0.0
+
+# Deployment environments
+# Staging:
+# NEXT_PUBLIC_API_URL=https://api-staging.picobrain.com/api/v1
+# Production:
+# NEXT_PUBLIC_API_URL=https://api.picobrain.com/api/v1
+```
+
+## 🎨 Design System
+
+### UI Component Library: Ant Design
+```typescript
+// Theme Configuration
+const theme = {
+  token: {
+    colorPrimary: '#e67e5b',     // PicoCoral primary
+    colorSuccess: '#10b981',
+    colorWarning: '#f59e0b',
+    colorError: '#ef4444',
+    colorInfo: '#3b82f6',
+    borderRadius: 6,
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto',
+  },
+};
+
+// Component Usage
+import { Table, Form, Button, Modal, message } from 'antd';
+```
+
+### Data Table Features
+- Server-side pagination (100k+ records)
+- Virtual scrolling
+- Column sorting & filtering
+- Search functionality
+- Row actions (edit, delete)
+- Bulk operations
+- CSV export
+
+### Form Handling Pattern
+```typescript
+// Single form with sections (not wizard)
+const EmployeeForm = () => {
+  return (
+    <Form layout="vertical">
+      <Collapse defaultActiveKey={['1', '2', '3']}>
+        <Panel header="Personal Information" key="1">
+          {/* Person fields */}
+        </Panel>
+        <Panel header="Employment Details" key="2">
+          {/* Employee fields */}
+        </Panel>
+        <Panel header="Clinic Assignment" key="3">
+          {/* Clinic selection */}
+        </Panel>
+      </Collapse>
+    </Form>
+  );
+};
 ```
 
 ## ✅ What Works
 - FastAPI backend with PostgreSQL database
-- Next.js 15 frontend with App Router
-- JWT authentication system
+- Complete database schema with all relationships
+- JWT authentication with refresh tokens
 - Full CRUD operations for all entities
+- Bulk employee creation endpoint
 - Alembic database migrations
-- Tailwind CSS with PicoClinics design system
-- Development hot-reload on both frontend and backend
-- Clinic migration completed (5 clinics)
-- Employee migration in progress (87 employees)
+- 5 clinics fully migrated
+- 87 employees fully migrated
+- Frontend architecture fully planned
+- Ant Design chosen for UI components
+- Deployment strategy for Vercel defined
 
-## ❌ Known Issues
-- **Frontend Build Error**: ✅ FIXED! (downgraded to React 18 + Next.js 14, added 'use client' to DashboardLayout)
+## ❌ Known Issues & Pending
+- Frontend implementation not started (plan complete)
 - Mobile app directory exists but React Native not configured
-- Backend uses plain Python without type checking
-- Some test scripts may need permission updates (chmod +x)
+- Permission matrix needs definition
+- Audit logging implementation pending
+- Client data migration pending
 
-## ⚠️ Common Mistakes to Avoid
-- **React 19 Compatibility**: React 19 is too new, use React 18 for stability
-- **Missing 'use client'**: Components using hooks need 'use client' directive in Next.js App Router
-- **Wrong API Docs URL**: Use `/docs` NOT `/api/v1/docs`
-- **Wrong Backend Command**: Use `python -m uvicorn app.main:app` NOT `python app.py`
-- **Login Route**: Use `/login` NOT `/login/dashboard` (returns 404)
-- **Forgot venv**: Always activate venv before Python commands
-- **Servers Not Running**: Both servers MUST be running before testing
-- **Date Validation**: Remember today is Aug 30, 2025 - future dates in 2025 are VALID
+## ⚠️ Critical Knowledge
 
-### Database Migration Mistakes (CRITICAL - 2025-08-31)
-- **Wrong Database Name**: Use `picobraindb` NOT `edo_brain_4`
-- **Wrong PostgreSQL User**: Use `edo` NOT `postgres`
-- **Missing person_id**: Employees MUST have a person record first
-- **Missing clinic_id**: primary_clinic_id is REQUIRED (not nullable)
-- **Wrong Approach**: Direct database migration works, API migration is complex
-- **Missing Tables**: Always check if doctors/currencies tables exist
-- **Employee Code Format**: Use f"EMP{int(id):04d}" to avoid format errors
-- **Email Generation**: Generate unique emails with index to avoid duplicates
+### Database Gotchas
+- **Database**: `picobraindb` NOT `edo_brain_4`
+- **User**: `edo` NOT `postgres`
+- **Relationships**: Person → Employee/Client (one-to-one)
+- **Required Fields**: primary_clinic_id CANNOT be NULL
+- **Phone Fields**: Split into country_code and number
+- **Salaries**: Stored in minor units (cents)
 
-## ⚠️ Pitfalls & Time-Wasters
-- Always activate venv before Python commands
-- API requires authentication for most endpoints
-- Frontend auto-redirects to /dashboard
-- Git hooks require executable permissions
-- Token limit is 160,000 (80% of Claude's 200K)
-- Commission rates must be decimal (0.15 not "15")
-- Salaries stored in minor units (cents)
+### API Patterns
+- All endpoints under `/api/v1/`
+- Auth required for most endpoints (Bearer token)
+- Pagination: `?page=1&limit=20`
+- Bulk operations: `/employees/bulk`
+- OpenAPI spec: `/api/v1/openapi.json`
 
-## 📊 Metrics
-- Total Sessions: 8
-- Dependencies Installed: Backend (75+), Frontend (29+)
-- API Endpoints: 20+
-- Database Tables: 5+ (persons, clinics, users, employees, clients)
-- Migrated Records: 5 clinics, ~87 employees (in progress)
+### Frontend Architecture Decisions
+- **Ant Design** over shadcn/ui for enterprise features
+- **Single forms with sections** over wizards
+- **Traditional pagination** over infinite scroll
+- **No offline support** to keep it simple
+- **Edit audit logging only** (no view tracking)
+- **Server-side operations** for large datasets
 
-## 📊 Database Migration FINAL STATUS (2025-08-31)
+## 📊 Project Metrics
+- Total Sessions: 9
+- Backend Dependencies: 75+
+- Frontend Dependencies (planned): 8 core
+- API Endpoints: 30+
+- Database Tables: 7 (persons, clinics, users, employees, clients, doctors, currencies)
+- Migrated Records: 5 clinics, 87 employees
+- Frontend Components Planned: 10+ shared
+- Estimated Development Time: 2-3 weeks
 
-### ✅ Completed Migrations
-1. ✅ **Clinics**: 5 clinics with complete addresses
-2. ✅ **Employees**: ALL 87 employees successfully migrated
-3. ✅ **Persons**: 91 person records created
-4. ✅ **Doctors**: 34 doctor records with licenses
-5. ✅ **Currencies**: Table created with USD, EUR, GBP, CAD
+## 🚀 Next Steps
 
-### 🔍 Diagnostic Approach That Worked
-```python
-# 1. Find correct database
-cur.execute("SELECT datname FROM pg_database")
-# Result: picobraindb (NOT edo_brain_4)
+### Immediate (Phase 1-2)
+1. Initialize Next.js 14 with TypeScript
+2. Set up Ant Design with custom theme
+3. Create API client with interceptors
+4. Generate types from OpenAPI
+5. Implement authentication flow
+6. Build shared components (DataTable, EntityForm)
 
-# 2. Check table structure
-cur.execute("""
-    SELECT column_name, is_nullable 
-    FROM information_schema.columns 
-    WHERE table_name = 'employees'
-    AND is_nullable = 'NO'
-""")
-# Found: primary_clinic_id is REQUIRED
+### Clinics POC (Phase 3) - FIRST DELIVERABLE
+1. List page with pagination
+2. Create/Edit forms
+3. Delete with confirmation
+4. Search and filtering
+5. Test with 100k records simulation
+6. Validate audit logging
 
-# 3. Test single record first
-# This revealed all missing requirements
+### Pending Decisions
+1. **Permission Matrix**: Define CRUD permissions per role
+2. **Business Rules**: Person-Employee-Client relationships
+3. **UI Preferences**: Theme, date format, table density
+4. **Deployment**: Staging environment needs
 
-# 4. Fix issues incrementally
-# Create tables, add columns, then migrate
+## 📚 Reference Documents
+- Frontend Plan: `/Users/edo/PyProjects/picobrain-frontend-plan.md`
+- API Documentation: http://localhost:8000/docs
+- Migration Report: `/Users/edo/PyProjects/PICOBRAIN_MIGRATION_REPORT.md`
+- This Knowledge Base: `/Users/edo/PyProjects/picobrain/knowledge.md`
+
+## 💡 Prompt for Next Session
 ```
+Read the frontend development plan at:
+/Users/edo/PyProjects/picobrain-frontend-plan.md
 
-### Database Structure Discovered
-- **persons → employees**: One-to-one relationship via person_id
-- **employees → clinics**: Many-to-one via primary_clinic_id
-- **employees → doctors**: One-to-one via employee_id
-- **employees → currencies**: Many-to-one via currency_code
+And the knowledge base at:
+/Users/edo/PyProjects/picobrain/knowledge.md
 
-### Ready for Migration
-- **Clients**: Next after employees complete
-- CSV fields now map to all database fields
-- Employment dates, salaries, commissions can be stored
+Then:
+1. Initialize Next.js 14 project with TypeScript and Ant Design
+2. Set up the project structure from section 1.3
+3. Implement Phase 1 (Foundation Setup)
+4. Create the Clinics POC as first deliverable
 
-### Migration Order Plan
-1. Clinics ✅ Complete
-2. Employees 🔄 In Progress
-3. Clients (next)
-4. Users (link to employees)
-5. Clean up temp_id columns after migration
-
-## 📝 Code Patterns
-
-### React/Next.js
-- App Router structure in src/app directory
-- Functional components with TypeScript
-- Zustand for state management
-- TanStack Query for data fetching
-- Radix UI for accessible components
-
-### API/Backend
-- FastAPI with async/await endpoints
-- SQLAlchemy ORM models
-- Pydantic schemas for validation
-- JWT token authentication
-- RESTful API design with /api/v1 prefix
-
-### Migration Scripts (Python)
-```python
-# Standard pattern for migration scripts
-import asyncio
-import aiohttp
-import csv
-import json
-from datetime import date, datetime
-
-# Authentication
-async with session.post(f"{API_BASE_URL}/auth/login", data=data) as resp:
-    token = result['access_token']
-
-# Bulk creation
-batch_data = {
-    "employees": batch,
-    "stop_on_error": False,
-    "validate_all_first": False
-}
-
-# Individual creation with retry
-async def migrate_single_employee(session, headers, employee_data):
-    try:
-        async with session.post(
-            f"{API_BASE_URL}/employees",
-            headers=headers,
-            json=employee_data
-        ) as resp:
-            if resp.status in [200, 201]:
-                return True, result.get('id')
-            else:
-                return False, await resp.text()
-    except Exception as e:
-        return False, str(e)
+Permission matrix: [DEFINE YOUR PERMISSIONS]
 ```
-
-### Testing
-- test_api.sh for comprehensive API testing
-- test_connection.py for database connectivity
-- run_tests.sh for all backend tests
-
-## 🚀 Quick Start Checklist
-
-### ⚠️ CRITICAL FIRST STEP: Start Servers!
-**Why**: Without servers running, you cannot:
-- Test the application
-- Access the dashboard
-- Make API calls
-- See UI changes
-
-1. [ ] Ensure PostgreSQL is running (`pg_isready -h localhost -p 5432`)
-2. [ ] **START BOTH SERVERS** (Essential for any work!):
-   - Method A: Run `./start-servers.sh` (easiest)
-   - Method B: Manual in Terminal tabs:
-     - [ ] Tab 1: `cd backend && source venv/bin/activate && python -m uvicorn app.main:app --reload`
-     - [ ] Tab 2: `cd frontend && npm run dev`
-   - [ ] Wait for both to fully start (~5-10 seconds)
-3. [ ] Verify API health at http://localhost:8000/health
-4. [ ] Verify API docs at http://localhost:8000/docs (NOT /api/v1/docs)
-5. [ ] Login at http://localhost:3000/login with:
-   - Username: admin@picobrain.com
-   - Password: admin123
-6. [ ] Access dashboard at http://localhost:3000/dashboard
-
-## 📚 Additional Resources
-- API Documentation: http://localhost:8000/docs (NOT /api/v1/docs - common mistake!)
-- API Health Check: http://localhost:8000/health
-- Frontend: http://localhost:3000 
-- Login Page: http://localhost:3000/login 
-- Dashboard: http://localhost:3000/dashboard 
-- Database Migrations: backend/alembic/versions/
-- Test Scripts: backend/test_*.sh
-- Admin User Creation: backend/app/seeds/create_admin.py
-- Migration Reports: /Users/edo/PyProjects/picobrain/migration_*.json
-- Comprehensive Report: /Users/edo/PyProjects/PICOBRAIN_MIGRATION_REPORT.md
 
 ---
 
 ## Weekly Review: 2025-W35
-- Commits: Multiple migration scripts created
-- Files Changed: 20+ (migration scripts, reports)
-- Top patterns: Employee migration, data validation
-- Key Achievement: Complete employee migration solution implemented
+- Commits: Multiple migration scripts, frontend planning
+- Files Changed: 30+ (migration scripts, reports, plans)
+- Top patterns: Employee migration, frontend architecture, API integration
+- Key Achievements: 
+  - Complete employee migration (87 records)
+  - Complete frontend architecture design
+  - Technology stack finalized
+  - Clinics POC specification ready
 ---
